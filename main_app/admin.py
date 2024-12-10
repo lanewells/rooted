@@ -1,3 +1,6 @@
 from django.contrib import admin
+from .models import Relative, Memory, Comment
 
-# Register your models here.
+admin.site.register(Relative)
+admin.site.register(Memory)
+admin.site.register(Comment)
