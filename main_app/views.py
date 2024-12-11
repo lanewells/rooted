@@ -24,7 +24,7 @@ def save_relative_profile(sender, instance, **kwargs):
     
 class ProfileDetail(LoginRequiredMixin, DetailView):
     model = RelativeProfile
-    template_name = 'profile_detail.html'
+    template_name = 'main_app/profile/profile_detail.html'
 
     def get_object(self):
         return self.request.user.relativeprofile
@@ -66,8 +66,11 @@ class CommentList(LoginRequiredMixin, ListView):
     model = Comment
     template_name = 'main_app/comments/comment_list.html'
 
-class CommentCreate(LoginRequiredMixin, CreateView):
-    model = Comment
-    fields = ['text', 'description', 'memory_date']
-    template_name = 'main_app/comment/comment_form.html'
+# class CommentCreate(LoginRequiredMixin, CreateView):
+#     model = Comment
+#     fields = ['text']
+#     template_name = 'main_app/comments/comment_form.html'
 
+# class CommentUpdate(LoginRequiredMixin, UpdateView):
+#     model = Comment
+#     fields = ['text']

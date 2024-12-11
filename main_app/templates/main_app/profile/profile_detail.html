@@ -1,0 +1,10 @@
+{% extends 'main_app/base.html' %} {% block content %}
+
+<h1>{{ user.username }}'s Profile</h1>
+<hr />
+<h2>Profile detail page per logged in user</h2>
+<p>Birthdate: {{ user.birthday }}</p>
+<a href="#">Edit Profile</a>
+<a href="#">Delete Profile</a>
+
+{% endblock %}
