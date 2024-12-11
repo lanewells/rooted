@@ -1,21 +1,33 @@
+from django.http import HttpResponse
 from django.shortcuts import render, redirect
 from django.urls import reverse_lazy
-from django.http import HttpResponse
 from django.views.generic import ListView, DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
+from django.contrib.auth.models import User
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.db.models.signals import post_save
+from django.dispatch import receiver
 from .models import RelativeProfile, Memory, Comment
 from .forms import MemoryForm
-
 
 def home(request):
     return HttpResponse('<h1>Home Page</h1>')
 
-# def profile(request, relative_id):
-#     relative = RelativeProfile.objects.get(id=relative_id)
-#     return render(request, 'main_app/profile.html', {'relative':relative})
+@receiver(post_save, sender=User)
+def create_relative_profile(sender, instance, created, **kwargs):
+    if created:
+        RelativeProfile.objects.create(user=instance)
 
-# def relatives(request):
-#     return render(request, 'main_app/relatives.html')
+@receiver(post_save, sender=User)
+def save_relative_profile(sender, instance, **kwargs):
+    instance.relativeprofile.save()
+    
+class ProfileDetailView(LoginRequiredMixin, DetailView):
+    model = RelativeProfile
+    template_name = 'profile_detail.html'
+
+    def get_object(self):
+        return self.request.user.relativeprofile
 
 def my_memories(request):
     return render(request, 'main_app/memories/my_memories.html')
