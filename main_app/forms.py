@@ -1,5 +1,7 @@
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.models import User
 from django import forms
-from .models import Memory
+from .models import Memory, RelativeProfile
 
 class MemoryForm(forms.ModelForm):
     class Meta:
@@ -26,3 +28,41 @@ class MemoryForm(forms.ModelForm):
                       }
                 )
             }
+
+class UserForm(UserCreationForm):
+    birthdate = forms.DateField(
+        required=True,
+        widget=forms.DateInput(
+            format=('%Y-%m-%d'),
+            attrs={
+                'placeholder': 'Select your birthdate',
+                'type': 'date',
+                'class': 'form-control',
+            }
+        )
+    )
+
+    class Meta:
+        model = User
+        fields = ['username', 'birthdate', 'password1', 'password2']
+
+
+class UserUpdateForm(forms.ModelForm):
+    class Meta:
+        model = User
+        fields = ['username']
+
+
+class RelativeProfileForm(forms.ModelForm):
+    class Meta:
+        model = RelativeProfile
+        fields = ['birthdate']  
+        widgets = {
+            'birthdate': forms.DateInput(
+                format=('%Y-%m-%d'),
+                attrs={
+                    'placeholder': 'Select your birthdate',
+                    'type': 'date',
+                }
+            )
+        }

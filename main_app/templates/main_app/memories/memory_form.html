@@ -1,10 +1,17 @@
 {% extends 'main_app/base.html' %} {% block content %}
 
-<h1>Add New Memory</h1>
-<hr />
-<!-- Do I need an action? -->
+<div class="page-header">
+  {% if memory %}
+  <h1>Edit Memory</h1>
+  <h3>{{ memory.title }}</h3>
+  {% else %}
+  <h1>Add New Memory</h1>
+  {% endif %}
+</div>
+
 <form action="" method="post" class="form-container">
-  <table>
+  {% csrf_token %}
+  <table class="form-table">
     {{ form.as_table }}
   </table>
   <button type="submit" class="btn submit">Confirm</button>
