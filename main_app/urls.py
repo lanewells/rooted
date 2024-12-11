@@ -5,7 +5,8 @@ urlpatterns = [
     path('', views.home, name='home'),
     path('profile/', views.profile, name='profile'),
     path('relatives/', views.relatives, name='relatives'),
-    path('my-memories/', views.my_memories, name='my-memories'),
-    path('family-memories/', views.family_memories, name='family-memories'),
+    path('memories/', views.MemoryList.as_view(), name='memory-list'),
+    path('memories/<int:pk>/', views.MemoryDetail.as_view(), name='memory-detail'),
+    path('memories/my-memories/', views.my_memories, name='my-memories'),
     
 ]
