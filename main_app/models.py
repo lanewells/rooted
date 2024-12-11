@@ -3,7 +3,7 @@ from django.db import models
 
 class RelativeProfile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    birthday = models.DateField(null=True, blank=True)
+    birthdate = models.DateField(null=True, blank=True)
     created = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):

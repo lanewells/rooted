@@ -1,4 +1,5 @@
 {% extends 'main_app/base.html' %} {% block content %}
+
 <h1>All Family Memories</h1>
 <hr />
 <ul>
@@ -6,4 +7,5 @@
   <li>{{ memory.title }} from {{ memory.memory_date }}</li>
   {% endfor %}
 </ul>
+
 {% endblock %}
