@@ -1,0 +1,7 @@
+{% extends 'main_app/base.html' %} {% block content %}
+<h1>{{ memory.title }}</h1>
+<hr />
+<p>Circa {{ memory.memory_date }}</p>
+<p>Recorded by: {{ memory.created_by }} on {{ memory.created }}</p>
+<p>Story: {{ memory.description }}</p>
+{% endblock %}
