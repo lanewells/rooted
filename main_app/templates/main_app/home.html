@@ -1,13 +1,12 @@
-{% extends 'base.html' %} {% block content %}
+{% extends 'main_app/base.html' %} {% block content %}
 
 <h1>Login</h1>
 <section class="logo-container">
   <p>LOGO</p>
 </section>
 
-{% if not user.is_authenticated %}
 <section>
-  <form action="{% url 'home' %}" method="post" class="login">
+  <form action="" method="post" class="login">
     <h1>Login</h1>
     {% csrf_token %} {{ form.as_p }}
     <input type="hidden" name="next" value="{{ next }}" />
@@ -16,4 +15,4 @@
   <p>Don't have an account? <a href="{% url 'signup' %}">Sign up here</a>.</p>
 </section>
 
-{% endif %} {% endblock %}
+{% endblock %}
