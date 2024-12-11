@@ -1,0 +1,13 @@
+{% extends 'main_app/base.html' %} {% block content %}
+
+<h1>Add New Memory</h1>
+<hr />
+<!-- Do I need an action? -->
+<form action="" method="post" class="form-container">
+  <table>
+    {{ form.as_table }}
+  </table>
+  <button type="submit" class="btn submit">Confirm</button>
+</form>
+
+{% endblock %}
