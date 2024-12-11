@@ -80,7 +80,6 @@ def update_account(request):
         'user_form': user_form,
         'profile_form': profile_form,
     }
-    # do  i need this folder and file now? what goes in it?
     return render(request, 'main_app/account/update_account.html', context)
 
 ## MEMORIES
@@ -112,7 +111,6 @@ class MemoryCreate(LoginRequiredMixin, CreateView):
 class MemoryUpdate(LoginRequiredMixin, UpdateView):
     model = Memory
     fields = ['title', 'description', 'memory_date']
-    # Does this need something special because the form I wanna reuse is specified in forms.py?
 
 class MemoryDelete(LoginRequiredMixin, DeleteView):
     model = Memory
