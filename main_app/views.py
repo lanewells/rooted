@@ -22,7 +22,7 @@ def create_relative_profile(sender, instance, created, **kwargs):
 def save_relative_profile(sender, instance, **kwargs):
     instance.relativeprofile.save()
     
-class ProfileDetailView(LoginRequiredMixin, DetailView):
+class ProfileDetail(LoginRequiredMixin, DetailView):
     model = RelativeProfile
     template_name = 'profile_detail.html'
 
@@ -32,16 +32,16 @@ class ProfileDetailView(LoginRequiredMixin, DetailView):
 def my_memories(request):
     return render(request, 'main_app/memories/my_memories.html')
 
-class MemoryList(ListView):
+class MemoryList(LoginRequiredMixin, ListView):
     model = Memory
     template_name = 'main_app/memories/memory_list.html'
     # paginate_by = 9
 
-class MemoryDetail(DetailView):
+class MemoryDetail(LoginRequiredMixin, DetailView):
     model = Memory
     template_name = 'main_app/memories/memory_detail.html'
 
-class MemoryCreate(CreateView):
+class MemoryCreate(LoginRequiredMixin, CreateView):
     model = Memory
     form_class = MemoryForm
     template_name = 'main_app/memories/memory_form.html'
@@ -53,11 +53,21 @@ class MemoryCreate(CreateView):
     def get_success_url(self):
         return reverse_lazy('memory-detail', kwargs={'pk': self.object.pk})
 
-class CommentList(ListView):
+class MemoryUpdate(LoginRequiredMixin, UpdateView):
+    model = Memory
+    fields = ['title', 'description', 'memory_date']
+    # Does this need something special because the form I wanna reuse is specified in forms.py?
+
+class MemoryDelete(LoginRequiredMixin, DeleteView):
+    model = Memory
+    success_url = '/memories/'
+
+class CommentList(LoginRequiredMixin, ListView):
     model = Comment
     template_name = 'main_app/comments/comment_list.html'
 
-class CommentCreate(CreateView):
+class CommentCreate(LoginRequiredMixin, CreateView):
     model = Comment
     fields = ['text', 'description', 'memory_date']
     template_name = 'main_app/comment/comment_form.html'
+
