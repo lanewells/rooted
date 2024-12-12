@@ -7,7 +7,7 @@ from django.contrib.auth import login
 from django.contrib.auth.views import LoginView
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
-from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from .models import RelativeProfile, Memory, Comment
 from .forms import MemoryForm, UserForm, UserUpdateForm, RelativeProfileForm, CommentForm
 
@@ -134,18 +134,28 @@ class MemoryDetail(LoginRequiredMixin, FormMixin, DetailView):
     def get_success_url(self):
         return reverse('memory-detail', kwargs={'pk': self.object.pk})
 
-class MemoryUpdate(LoginRequiredMixin, UpdateView):
+class MemoryUpdate(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     model = Memory
     template_name = 'main_app/memories/memory_form.html'
     fields = ['title', 'description', 'memory_date']
     
     def get_success_url(self):
         return reverse_lazy('memory-detail', kwargs={'pk': self.object.pk})
+    
+    def test_func(self):
+        memory = self.get_object()
+        return self.request.user == memory.created_by
 
-class MemoryDelete(LoginRequiredMixin, DeleteView):
+class MemoryDelete(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
     model = Memory
     template_name = 'main_app/memories/memory_confirm_delete.html'
     success_url = '/memories/'
+
+    def test_func(self):
+        memory = self.get_object()
+        return self.request.user == memory.created_by
+
+
 
 ############ COMMENTS ############
 
@@ -157,6 +167,25 @@ class CommentCreate(LoginRequiredMixin, CreateView):
     model = Comment
     template_name = 'main_app/comments/comment_form.html'
 
-# class CommentUpdate(LoginRequiredMixin, UpdateView):
-#     model = Comment
-#     fields = ['text']
+class CommentUpdate(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
+    model = Comment
+    template_name = 'main_app/comments/comment_form.html'
+    fields = ['text']
+
+    def get_success_url(self):
+        return reverse_lazy('memory-detail', kwargs={'pk': self.object.memory.pk})
+    
+    def test_func(self):
+        comment = self.get_object()
+        return self.request.user == comment.created_by
+    
+class CommentDelete(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
+    model = Comment
+    template_name = 'main_app/comments/comment_confirm_delete.html'
+
+    def get_success_url(self):
+        return reverse_lazy('memory-detail', kwargs={'pk': self.object.memory.pk})
+    
+    def test_func(self):
+        comment = self.get_object()
+        return self.request.user == comment.created_by

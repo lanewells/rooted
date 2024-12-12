@@ -12,6 +12,8 @@ urlpatterns = [
     path('memories/<int:pk>/update/', views.MemoryUpdate.as_view(), name='memory-update'),
     path('memories/<int:pk>/delete', views.MemoryDelete.as_view(), name='memory-delete'),
     path('memories/my-memories/', views.my_memories, name='my-memories'),
+    path('comments/<int:pk>/update/', views.CommentUpdate.as_view(), name='comment-update'),
+    path('comments/<int:pk>/delete/', views.CommentDelete.as_view(), name='comment-delete'),
     path('accounts/signup/', views.signup, name='signup'),
     path('accounts/update/', views.update_account, name='account-update'),
 ]
