@@ -8,8 +8,8 @@
 <p>the story: {{ memory.description }}</p>
 
 {% if user == memory.created_by %}
-<a href="{% url 'memory-update' memory.id %}" class="btn btn-warn">Edit</a>
-<a href="{% url 'memory-delete' memory.id %}" class="btn btn-danger">Delete</a>
+    <a href="{% url 'memory-update' memory.id %}" class="btn btn-warn">Edit</a>
+    <a href="{% url 'memory-delete' memory.id %}" class="btn btn-danger">Delete</a>
 {% endif %}
 
 <hr />
@@ -32,7 +32,7 @@
 <hr>
 
 <h2>Add Comment</h2>
-<form method="post">
+<form action="" method="post">
     {% csrf_token %}
     {{ comment_form.as_p }}
     <button type="submit" class="btn btn-first">Submit</button>
