@@ -125,7 +125,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 LOGIN_URL = 'home'
 
-LOGIN_REDIRECT_URL = 'memory-index'
+LOGIN_REDIRECT_URL = 'memory-list'
 
 LOGOUT_REDIRECT_URL = 'home'
 
