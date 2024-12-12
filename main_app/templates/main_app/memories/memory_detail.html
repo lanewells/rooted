@@ -18,8 +18,10 @@
     {% for comment in comments %}
         <p><strong>{{ comment.created_by }}:</strong> {{ comment.text }}</p>
         <p><small>{{ comment.created }}</small></p>
+    
         {% if user == comment.created_by %}
         <a href="{% url 'comment-update' comment.id %}" class="btn btn-sm btn-warn">Edit</a>
+        <a href="{% url 'comment-delete' comment.id %}" class="btn btn-sm btn-danger">Delete</a>
         {% endif %}
         <hr>
     {% empty %}

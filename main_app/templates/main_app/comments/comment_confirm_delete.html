@@ -1,0 +1,15 @@
+{% extends 'main_app/base.html' %} {% block content %}
+
+<div class="page-header">
+  <h1>Delete Comment?</h1>
+</div>
+
+<h2>Are you sure you want to delete your comment?</h2>
+
+<form action="" method="post" class="form">
+  {% csrf_token %}
+  <a href="{% url 'memory-detail' comment.memory.id %}" class="btn">Cancel!</a>
+  <button type="submit" class="btn btn-danger">Yes - Delete</button>
+</form>
+
+{% endblock %}

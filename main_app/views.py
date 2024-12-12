@@ -167,10 +167,21 @@ class CommentCreate(LoginRequiredMixin, CreateView):
     model = Comment
     template_name = 'main_app/comments/comment_form.html'
 
-class CommentUpdate(LoginRequiredMixin, UpdateView):
+class CommentUpdate(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     model = Comment
     template_name = 'main_app/comments/comment_form.html'
     fields = ['text']
+
+    def get_success_url(self):
+        return reverse_lazy('memory-detail', kwargs={'pk': self.object.memory.pk})
+    
+    def test_func(self):
+        comment = self.get_object()
+        return self.request.user == comment.created_by
+    
+class CommentDelete(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
+    model = Comment
+    template_name = 'main_app/comments/comment_confirm_delete.html'
 
     def get_success_url(self):
         return reverse_lazy('memory-detail', kwargs={'pk': self.object.memory.pk})
