@@ -4,7 +4,7 @@
     <h1>My Memories</h1>
     <a href="{% url 'memory-create'%}">Add New Memory</a>
 </section>
-{% if memory %}
+
 <section class="card-container">
     {% for memory in memories %}
     <div class="card">
@@ -12,13 +12,11 @@
             <div class="card-content">
                 <img src="" alt="Memory Icon" />
                 <h2 class="card-title">{{ memory.title }}</h2>
+                <p>circa {{ memory.memory_date }}</p>
             </div>
         </a>
     </div>
     {% endfor %}
 </section>
-{% else %}
-<h2>You have no recorded memories yet! Add a new memory to get started.</h2>
-{% endif %}
 
 {% endblock %}
