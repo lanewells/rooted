@@ -1,21 +1,18 @@
-{% extends 'main_app/base.html' %} {% block content %}
+{% extends 'main_app/base.html' %} {% block content %} 
 
-<h1>Login</h1>
-<section class="logo-container">
-  <p>LOGO</p>
-</section>
-
-{% if user.is_authenticated %}
+{% if user.is_authenticated %} 
 
 <section>
   <h1>Welcome back, {{ user.username }}!</h1>
   <p><a href="{% url 'profile' %}" class="btn">View Profile</a></p>
-  <p><a href="{% url 'memory-list' %}" class="btn">Browse Memories</a></p>
-  <p><a href="{% url 'logout' %}" class="btn btn-second">Log Out</a></p>
+  <p><a href="{% url 'memory-list' %}" class="btn">Reminisce</a></p>
+  <p><a href="{% url 'memory-create' %}">Create Memories</p>
+  <p><form id="logout-form" method="post" action="{% url 'logout' %}">
+    {% csrf_token %}
+    <button type="submit">Log out</button>
+  </form></p>
 </section>
-
 {% else %}
-
 <section>
   <h1>Login</h1>
   <form action="" method="post" class="login">
@@ -26,4 +23,5 @@
   <p>Don't have an account? <a href="{% url 'signup' %}">Sign up here</a>.</p>
 </section>
 
-{% endif %} {% endblock %}
+{% endif %}
+{% endblock %}

@@ -44,7 +44,7 @@ def signup(request):
 
 class ProfileUpdate(LoginRequiredMixin, UpdateView):
     model = RelativeProfile
-    fields = ['birthdate']
+    form_class = RelativeProfileForm
     template_name = 'main_app/profile/profile_form.html'
 
     def get_object(self):
@@ -85,16 +85,9 @@ def update_account(request):
 ## MEMORIES
 @login_required
 def my_memories(request):
-    return render(request, 'main_app/memories/my_memories.html')
-
-class MemoryList(LoginRequiredMixin, ListView):
-    model = Memory
-    template_name = 'main_app/memories/memory_list.html'
-    # paginate_by = 9
-
-class MemoryDetail(LoginRequiredMixin, DetailView):
-    model = Memory
-    template_name = 'main_app/memories/memory_detail.html'
+    memories = Memory.objects.filter(created_by=request.user)
+    memories = Memory.objects.all()
+    return render(request, 'main_app/memories/my_memories.html', {'memories': memories})
 
 class MemoryCreate(LoginRequiredMixin, CreateView):
     model = Memory
@@ -107,13 +100,27 @@ class MemoryCreate(LoginRequiredMixin, CreateView):
 
     def get_success_url(self):
         return reverse_lazy('memory-detail', kwargs={'pk': self.object.pk})
+    
+class MemoryList(LoginRequiredMixin, ListView):
+    model = Memory
+    template_name = 'main_app/memories/memory_list.html'
+    # paginate_by = 9
+
+class MemoryDetail(LoginRequiredMixin, DetailView):
+    model = Memory
+    template_name = 'main_app/memories/memory_detail.html'
 
 class MemoryUpdate(LoginRequiredMixin, UpdateView):
     model = Memory
+    template_name = 'main_app/memories/memory_form.html'
     fields = ['title', 'description', 'memory_date']
+    
+    def get_success_url(self):
+        return reverse_lazy('memory-detail', kwargs={'pk': self.object.pk})
 
 class MemoryDelete(LoginRequiredMixin, DeleteView):
     model = Memory
+    template_name = 'main_app/memories/memory_confirm_delete.html'
     success_url = '/memories/'
 
 ## COMMENTS

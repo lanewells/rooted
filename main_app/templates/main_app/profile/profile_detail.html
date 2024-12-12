@@ -1,10 +1,13 @@
 {% extends 'main_app/base.html' %} {% block content %}
 
 <h1>{{ user.username }}'s Profile</h1>
-<hr />
-<h2>Profile detail page per logged in user</h2>
-<p>Birthdate: {{ user.relativeprofile.birthdate|date:"Y-m-d" }}</p>
-<a href="{% url 'profile-update' %}">Edit Profile</a>
-<a href="{% url 'profile-delete' %}">Delete Profile</a>
+<p>Birthdate: {{ user.relativeprofile.birthdate }}</p>
+<p><form id="logout-form" method="post" action="{% url 'logout' %}">
+    {% csrf_token %}
+    <button type="submit">Log out</button>
+  </form>
+</p>
+<a href="{% url 'account-update' %}">Edit Account</a>
+<a href="{% url 'profile-delete' %}">Delete Account</a>
 
 {% endblock %}
