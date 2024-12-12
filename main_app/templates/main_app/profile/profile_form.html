@@ -1,9 +1,9 @@
 {% extends 'main_app/base.html' %} {% block content %}
 
 <h1>Edit Profile</h1>
-<form method="post" enctype="multipart/form-data">
+<form action="" method="post" class="form-container">
   {% csrf_token %} {{ form.as_p }}
-  <button type="submit" class="btn">Save Changes</button>
+  <button type="submit" class="btn submit">Save Changes</button>
 </form>
 
 {% endblock %}

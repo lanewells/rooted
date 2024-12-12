@@ -63,6 +63,7 @@ class RelativeProfileForm(forms.ModelForm):
                 attrs={
                     'placeholder': 'Select your birthdate',
                     'type': 'date',
+                    'class': 'form-control',
                 }
             )
         }

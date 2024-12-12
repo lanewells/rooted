@@ -44,7 +44,7 @@ def signup(request):
 
 class ProfileUpdate(LoginRequiredMixin, UpdateView):
     model = RelativeProfile
-    fields = ['birthdate']
+    form_class = RelativeProfileForm
     template_name = 'main_app/profile/profile_form.html'
 
     def get_object(self):
