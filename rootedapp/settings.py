@@ -137,14 +137,13 @@ STATIC_URL = 'static/'
 
 STATIC_ROOT = BASE_DIR / "staticfiles"
 
-# Default primary key field type
-# https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
-
-DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
 LOGIN_URL = 'home'
 
 LOGIN_REDIRECT_URL = 'memory-list'
 
 LOGOUT_REDIRECT_URL = 'home'
 
+# Default primary key field type
+# https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
+
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
