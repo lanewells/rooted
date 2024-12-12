@@ -22,6 +22,7 @@
     <main>
       <div class="page-content">{% block content %} {% endblock %}</div>
     </main>
+    {% if user.is_authenticated %} 
     <nav>
       <ul>
         <li>
@@ -38,12 +39,9 @@
           <a href="{% url 'profile' %}"><i class="bi bi-person"></i>Profile</a>
         </li>
         <li>
-          <form id="logout-form" method="post" action="{% url 'logout' %}">
-            {% csrf_token %}
-            <button type="submit">Log out</button>
-          </form>
+          <a href="{% url 'home' %}">Quick Links</a>
         </li>
       </ul>
     </nav>
-  </body>
+    {% endif %}
 </html>
