@@ -89,15 +89,6 @@ def my_memories(request):
     memories = Memory.objects.all()
     return render(request, 'main_app/memories/my_memories.html', {'memories': memories})
 
-class MemoryList(LoginRequiredMixin, ListView):
-    model = Memory
-    template_name = 'main_app/memories/memory_list.html'
-    # paginate_by = 9
-
-class MemoryDetail(LoginRequiredMixin, DetailView):
-    model = Memory
-    template_name = 'main_app/memories/memory_detail.html'
-
 class MemoryCreate(LoginRequiredMixin, CreateView):
     model = Memory
     form_class = MemoryForm
@@ -109,6 +100,15 @@ class MemoryCreate(LoginRequiredMixin, CreateView):
 
     def get_success_url(self):
         return reverse_lazy('memory-detail', kwargs={'pk': self.object.pk})
+    
+class MemoryList(LoginRequiredMixin, ListView):
+    model = Memory
+    template_name = 'main_app/memories/memory_list.html'
+    # paginate_by = 9
+
+class MemoryDetail(LoginRequiredMixin, DetailView):
+    model = Memory
+    template_name = 'main_app/memories/memory_detail.html'
 
 class MemoryUpdate(LoginRequiredMixin, UpdateView):
     model = Memory

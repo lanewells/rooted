@@ -1,11 +1,20 @@
 {% extends 'main_app/base.html' %} {% block content %}
 
-<h1>All Family Memories</h1>
-<hr />
-<ul>
-  {% for memory in memories %}
-  <li>{{ memory.title }} from {{ memory.memory_date }}</li>
+<section class="page-header">
+  <h1>All Family Memories</h1>
+</section>
+
+<section class="card-container">
+  {% for memory in memory_list %}
+  <div class="card">
+      <a href="{% url 'memory-detail' memory.id %}">
+          <div class="card-content">
+              <img src="" alt="Memory Icon" />
+              <h2 class="card-title">{{ memory.title }}</h2>
+          </div>
+      </a>
+  </div>
   {% endfor %}
-</ul>
+</section>
 
 {% endblock %}
