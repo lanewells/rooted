@@ -18,13 +18,6 @@ class Home(LoginView):
 
 ############ USER & PROFILE ############
 
-class ProfileDetail(LoginRequiredMixin, DetailView):
-    model = RelativeProfile
-    template_name = 'main_app/profile/profile_detail.html'
-
-    def get_object(self):
-        return self.request.user.relativeprofile
-
 def signup(request):
     error_message = ''
     form = UserForm(request.POST or None)
@@ -38,12 +31,19 @@ def signup(request):
                 )
             messages.success(request, 'Signup successful! Welcome to the family.')
             login(request, user)
-            return redirect('memory-list')
+            return redirect('memory-list', user.id)
         else:
             error_message = 'Invalid sign up - try again'
     context = {'form': form, 'error_message': error_message}
     return render(request, 'main_app/signup.html', context)
 
+class ProfileDetail(LoginRequiredMixin, DetailView):
+    model = RelativeProfile
+    template_name = 'main_app/profile/profile_detail.html'
+
+    def get_object(self):
+        return self.request.user.relativeprofile
+    
 class ProfileUpdate(LoginRequiredMixin, UpdateView):
     model = RelativeProfile
     form_class = RelativeProfileForm
