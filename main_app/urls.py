@@ -3,7 +3,6 @@ from . import views
 
 urlpatterns = [
     path('', views.Home.as_view(), name='home'),
-    path('accounts/signup/', views.signup, name='signup'),
     path('profile/', views.ProfileDetail.as_view(), name='profile'),
     path('profile/update/', views.ProfileUpdate.as_view(), name='profile-update'),
     path('profile/delete/', views.ProfileDelete.as_view(), name='profile-delete'),
@@ -13,5 +12,6 @@ urlpatterns = [
     path('memories/<int:pk>/update/', views.MemoryUpdate.as_view(), name='memory-update'),
     path('memories/<int:pk>/delete', views.MemoryDelete.as_view(), name='memory-delete'),
     path('memories/my-memories/', views.my_memories, name='my-memories'),
-
+    path('accounts/signup/', views.signup, name='signup'),
+    path('accounts/update/', views.update_account, name='account-update'),
 ]

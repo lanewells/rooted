@@ -2,8 +2,9 @@
 
 <section class="page-header">
     <h1>My Memories</h1>
+    <a href="{% url 'memory-create'%}">Add New Memory</a>
 </section>
-
+{% if memory %}
 <section class="card-container">
     {% for memory in memories %}
     <div class="card">
@@ -16,5 +17,8 @@
     </div>
     {% endfor %}
 </section>
+{% else %}
+<h2>You have no recorded memories yet! Add a new memory to get started.</h2>
+{% endif %}
 
 {% endblock %}
