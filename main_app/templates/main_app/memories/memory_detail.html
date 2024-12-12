@@ -1,9 +1,15 @@
 {% extends 'main_app/base.html' %} {% block content %}
 
 <h1>{{ memory.title }}</h1>
+<a href="{% url 'memory-list' %}" class="btn return">Return to My Memories</a>
 <hr />
 <p>Circa {{ memory.memory_date }}</p>
 <p>Recorded by: {{ memory.created_by }} on {{ memory.created }}</p>
 <p>Story: {{ memory.description }}</p>
+
+{% if user == memory.created_by %}
+<a href="{% url 'memory-update' memory.id %}" class="btn warn">Edit</a>
+<a href="{% url 'memory-delete' memory.id %}" class="btn danger">Delete</a>
+{% endif %}
 
 {% endblock %}

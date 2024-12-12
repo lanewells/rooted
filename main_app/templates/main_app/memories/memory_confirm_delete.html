@@ -1,0 +1,15 @@
+{% extends 'main_app/base.html' %} {% block content %}
+
+<div class="page-header">
+  <h1>Delete Memory?</h1>
+</div>
+
+<h2>Are you sure you want to delete {{ object.title }}?</h2>
+
+<form action="" method="post" class="form">
+  {% csrf_token %}
+  <a href="{% url 'memory-detail' memory.id %}" class="btn second">Cancel!</a>
+  <button type="submit" class="btn danger">Yes - Delete</button>
+</form>
+
+{% endblock %}

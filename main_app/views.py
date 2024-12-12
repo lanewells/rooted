@@ -112,10 +112,15 @@ class MemoryDetail(LoginRequiredMixin, DetailView):
 
 class MemoryUpdate(LoginRequiredMixin, UpdateView):
     model = Memory
+    template_name = 'main_app/memories/memory_form.html'
     fields = ['title', 'description', 'memory_date']
+    
+    def get_success_url(self):
+        return reverse_lazy('memory-detail', kwargs={'pk': self.object.pk})
 
 class MemoryDelete(LoginRequiredMixin, DeleteView):
     model = Memory
+    template_name = 'main_app/memories/memory_confirm_delete.html'
     success_url = '/memories/'
 
 ## COMMENTS
