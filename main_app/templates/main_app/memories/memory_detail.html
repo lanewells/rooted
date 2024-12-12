@@ -3,13 +3,34 @@
 <h1>{{ memory.title }}</h1>
 <a href="{% url 'memory-list' %}" class="btn return">Return to My Memories</a>
 <hr />
-<p>Circa {{ memory.memory_date }}</p>
-<p>Recorded by: {{ memory.created_by }} on {{ memory.created }}</p>
-<p>Story: {{ memory.description }}</p>
+<p>circa {{ memory.memory_date }}</p>
+<p>recorded by: {{ memory.created_by }} on {{ memory.created }}</p>
+<p>the story: {{ memory.description }}</p>
 
 {% if user == memory.created_by %}
 <a href="{% url 'memory-update' memory.id %}" class="btn warn">Edit</a>
 <a href="{% url 'memory-delete' memory.id %}" class="btn danger">Delete</a>
 {% endif %}
+
+<hr />
+<h2>Comments</h2>
+<div>
+    {% for comment in comments %}
+        <p><strong>{{ comment.created_by }}:</strong> {{ comment.text }}</p>
+        <p><small>{{ comment.created }}</small></p>
+        <hr>
+    {% empty %}
+        <p>No comments yet. Be the first!</p>
+    {% endfor %}
+</div>
+
+<hr>
+
+<h2>Add Comment</h2>
+<form method="post">
+    {% csrf_token %}
+    {{ comment_form.as_p }}
+    <button type="submit" class="btn btn-first">Submit</button>
+</form>
 
 {% endblock %}

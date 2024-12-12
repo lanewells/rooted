@@ -1,19 +1,17 @@
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 from django import forms
-from .models import Memory, RelativeProfile
+from .models import Memory, RelativeProfile, Comment
 
 class MemoryForm(forms.ModelForm):
     class Meta:
             model = Memory
             fields = ['title', 'description', 'memory_date']
-            # Cite widgets and forms customization
             widgets = {
                   'title': forms.TextInput(attrs={
                         'placeholder': 'Give your memory a title',
                         'class': 'form-control'
                   }),
-                  # Cite rows limitation and class form-control
                   'description': forms.Textarea(attrs={
                         'placeholder': 'Tell your story',
                         'rows': 5,
@@ -66,4 +64,16 @@ class RelativeProfileForm(forms.ModelForm):
                     'class': 'form-control',
                 }
             )
+        }
+
+class CommentForm(forms.ModelForm):
+    class Meta:
+        model = Comment
+        fields = ['text']
+        widgets = {
+            'text': forms.Textarea(attrs={
+                'placeholder': 'Type your comment here...',
+                'rows': 3,
+                'class': 'form-control',
+            }),
         }
