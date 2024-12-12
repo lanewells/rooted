@@ -85,7 +85,9 @@ def update_account(request):
 ## MEMORIES
 @login_required
 def my_memories(request):
-    return render(request, 'main_app/memories/my_memories.html')
+    memories = Memory.objects.filter(created_by=request.user)
+    memories = Memory.objects.all()
+    return render(request, 'main_app/memories/my_memories.html', {'memories': memories})
 
 class MemoryList(LoginRequiredMixin, ListView):
     model = Memory

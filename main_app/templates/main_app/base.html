@@ -25,15 +25,17 @@
     <nav>
       <ul>
         <li>
-          <a href="/family-memories"
+          <a href="{% url 'memory-list' %}"
             ><i class="bi bi-tree"></i>Family Memories</a
           >
         </li>
         <li>
-          <a href="/my-memories"><i class="bi bi-bullseye"></i>My Memories</a>
+          <a href="{% url 'my-memories' %}"
+            ><i class="bi bi-bullseye"></i>My Memories</a
+          >
         </li>
         <li>
-          <a href="/profile"><i class="bi bi-person"></i>Profile</a>
+          <a href="{% url 'profile' %}"><i class="bi bi-person"></i>Profile</a>
         </li>
         <li>
           <form id="logout-form" method="post" action="{% url 'logout' %}">
