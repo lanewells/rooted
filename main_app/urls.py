@@ -12,6 +12,4 @@ urlpatterns = [
     path('memories/create/', views.MemoryCreate.as_view(), name='memory-create'),
     path('memories/my-memories/', views.my_memories, name='my-memories'),
 
-
-    
 ]
