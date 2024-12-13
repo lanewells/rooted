@@ -29,7 +29,7 @@ class MemoryForm(forms.ModelForm):
 
 class UserForm(UserCreationForm):
     birthdate = forms.DateField(
-        required=True,
+        required=False,
         widget=forms.DateInput(
             format=('%Y-%m-%d'),
             attrs={

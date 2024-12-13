@@ -31,7 +31,7 @@ def signup(request):
                 )
             messages.success(request, 'Signup successful! Welcome to the family.')
             login(request, user)
-            return redirect('memory-list', user.id)
+            return redirect('memory-list')
         else:
             error_message = 'Invalid sign up - try again'
     context = {'form': form, 'error_message': error_message}
