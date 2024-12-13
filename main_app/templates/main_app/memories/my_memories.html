@@ -2,21 +2,25 @@
 
 <section class="page-header">
     <h1>My Memories</h1>
-    <a href="{% url 'memory-create'%}">Add New Memory</a>
+    <a href="{% url 'memory-create' %}">Add New Memory</a>
 </section>
 
-<section class="card-container">
-    {% for memory in memories %}
-    <div class="card">
-        <a href="{% url 'memory-detail' memory.id %}">
-            <div class="card-content">
-                <img src="" alt="Memory Icon" />
-                <h2 class="card-title">{{ memory.title }}</h2>
-                <p>circa {{ memory.memory_date }}</p>
-            </div>
-        </a>
-    </div>
-    {% endfor %}
-</section>
+{% if memories %}
+    <section class="card-container">
+        {% for memory in memories %}
+        <div class="card">
+            <a href="{% url 'memory-detail' memory.id %}">
+                <div class="card-content">
+                    <img src="" alt="Memory Icon" />
+                    <h2 class="card-title">{{ memory.title }}</h2>
+                    <p>circa {{ memory.memory_date }}</p>
+                </div>
+            </a>
+        </div>
+        {% endfor %}
+    </section>
+{% else %}
+    <h2>There are no recorded memories in this family tree. Be the first to add a new memory!</h2>
+{% endif %}
 
 {% endblock %}

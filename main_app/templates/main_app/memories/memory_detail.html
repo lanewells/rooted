@@ -1,8 +1,7 @@
 {% extends 'main_app/base.html' %} {% block content %}
 
+<a href="{% url 'memory-list' %}" class="btn return">Return to All Memories</a>
 <h1>{{ memory.title }}</h1>
-<a href="{% url 'memory-list' %}" class="btn return">Return to My Memories</a>
-<hr />
 <p>circa {{ memory.memory_date }}</p>
 <p>recorded by: {{ memory.created_by }} on {{ memory.created }}</p>
 <p>the story: {{ memory.description }}</p>

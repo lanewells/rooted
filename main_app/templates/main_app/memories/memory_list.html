@@ -2,8 +2,10 @@
 
 <section class="page-header">
   <h1>All Family Memories</h1>
+  <a href="{% url 'memory-create' %}">Add New Memory</a>
 </section>
 
+{% if memory_list %}
 <section class="card-container">
   {% for memory in memory_list %}
   <div class="card">
@@ -17,5 +19,8 @@
   </div>
   {% endfor %}
 </section>
+{% else %}
+<h2>There are no recorded memories in this family tree. Be the first to add a new memory!</h2>
+{% endif %}
 
 {% endblock %}
