@@ -1,27 +1,33 @@
-{% extends 'main_app/base.html' %} {% block content %} 
+{% extends 'main_app/base.html' %} {% load static %} {% block content %} 
+{% if user.is_authenticated %}
 
-{% if user.is_authenticated %} 
-
-<section>
+<div class="page-header">
   <h1>Welcome back, {{ user.username }}!</h1>
-  <p><a href="{% url 'profile' %}" class="btn">View Profile</a></p>
-  <p><a href="{% url 'memory-list' %}" class="btn">Reminisce</a></p>
-  <p><a href="{% url 'memory-create' %}">Create Memories</p>
-  <p><form id="logout-form" method="post" action="{% url 'logout' %}">
+</div>
+
+<div class="page-content">
+  <p><a href="{% url 'profile' %}" class="click">View Profile</a></p>
+  <p><a href="{% url 'memory-list' %}" class="click">Reminisce</a></p>
+  <p><a href="{% url 'memory-create' %}" class="click">Create Memories</a></p>
+  <form id="logout-form" method="post" action="{% url 'logout' %}">
     {% csrf_token %}
-    <button type="submit">Log out</button>
-  </form></p>
-</section>
+    <button class="click" type="submit">Log out</button>
+  </form>
+</div>
+
 {% else %}
-<section>
+
+<div class="page-header">
   <h1>Login</h1>
+</div>
+
+<div class="page-content">
   <form action="" method="post" class="login">
     {% csrf_token %} {{ form.as_p }}
     <input type="hidden" name="next" value="{{ next }}" />
-    <button type="submit" class="btn submit">Login</button>
+    <button type="submit" class="click submit">Login</button>
   </form>
-  <p>Don't have an account? <a href="{% url 'signup' %}">Sign up here</a>.</p>
-</section>
+  <p>Don't have an account? <a href="{% url 'signup' %}" class="click">Sign up here</a>.</p>
+</div>
 
-{% endif %}
-{% endblock %}
+{% endif %} {% endblock %}

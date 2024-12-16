@@ -1,12 +1,12 @@
-{% extends 'main_app/base.html' %} {% block content %}
+{% extends 'main_app/base.html' %} {% load static %} {% block content %}
 
-<section class="page-header">
+<div class="page-header">
     <h1>My Memories</h1>
-    <a href="{% url 'memory-create' %}">Add New Memory</a>
-</section>
+    <a href="{% url 'memory-create' %}" class="btn btn-add">Add New Memory</a>
+</div>
 
 {% if memories %}
-    <section class="card-container">
+    <div class="card-container">
         {% for memory in memories %}
         <div class="card">
             <a href="{% url 'memory-detail' memory.id %}">
@@ -18,7 +18,7 @@
             </a>
         </div>
         {% endfor %}
-    </section>
+      </div>
 {% else %}
     <h2>You haven't recorded any memories yet. Add a new memory to get started!</h2>
 {% endif %}

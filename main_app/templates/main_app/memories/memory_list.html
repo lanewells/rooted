@@ -1,26 +1,40 @@
-{% extends 'main_app/base.html' %} {% block content %}
+{% extends 'main_app/base.html' %} {% load static %} 
+{% block head %}
+<link rel="stylesheet" href="{% static 'css/memories.css' %}" />
+{% endblock %}
 
-<section class="page-header">
+{% block content %}
+
+<div class="page-header">
   <h1>All Family Memories</h1>
-  <a href="{% url 'memory-create' %}">Add New Memory</a>
-</section>
-
-{% if memory_list %}
-<section class="card-container">
-  {% for memory in memory_list %}
-  <div class="card">
-      <a href="{% url 'memory-detail' memory.id %}">
-          <div class="card-content">
-              <img src="" alt="Memory Icon" />
-              <h2 class="card-title">{{ memory.title }}</h2>
-              <p>Recorded by: {{ memory.created_by }}</p>
-          </div>
-      </a>
+  <div>
+    <a class="btn" href="{% url 'memory-create' %}">
+      <span class="text">Add New Memory</span>
+      <img src="{% static 'images/plus-green.svg' %}" alt="Plus icon" width="16" height="16">
+    </a>
   </div>
-  {% endfor %}
-</section>
-{% else %}
-<h2>There are no recorded memories in this family tree. Be the first to add a new memory!</h2>
-{% endif %}
+</div>
+<div class="page-content">
+  {% if memory_list %}
+  <section class="card-container">
+    {% for memory in memory_list %}
+    <div class="card">
+      <a href="{% url 'memory-detail' memory.id %}">
+        <img src="{% static 'images/log_outline.svg' %}" alt="Memory icon" width="50"/>
+        <div class="card-content">
+            <h2 class="card-title">{{ memory.title }}</h2>
+          <p>Recorded by: {{ memory.created_by }}</p>
+        </div>
+      </a>
+    </div>
+    {% endfor %}
+  </section>
+  {% else %}
+  <h2>
+    There are no recorded memories in this family tree. Be the first to add a
+    new memory!
+  </h2>
+  {% endif %}
+</div>
 
 {% endblock %}

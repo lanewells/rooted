@@ -1,4 +1,4 @@
-{% extends 'main_app/base.html' %} {% block content %}
+{% extends 'main_app/base.html' %} {% load static %} {% block content %}
 
 <div class="page-header">
   <h1>Edit your comment posted on {{ object.created }}</h1>
@@ -8,7 +8,8 @@
   <table>
     {{ form.as_p }}
   </table>
-  <button type="submit" class="btn submit">Submit</button>
+  <button type="submit" class="btn btn-submit">Submit</button>
+  <a href="{% url 'memory-detail' comment.memory.id %}" class="btn btn-secondary">Cancel!</a>
 </form>
 
 {% endblock %}

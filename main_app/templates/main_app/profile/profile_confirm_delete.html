@@ -1,11 +1,16 @@
-{% extends 'main_app/base.html' %} {% block content %}
+{% extends 'main_app/base.html' %}{% load static %} {% block content %}
 
-<h1>Are you sure you want to delete your profile?</h1>
-<h3>This will effectively delete all memories and comments you created.</h3>
-<form method="post">
-  {% csrf_token %}
-  <button type="submit" class="btn btn-danger">Yes, Delete</button>
-  <a href="{% url 'profile' %}" class="btn">Cancel!</a>
-</form>
+<div class="page-header">
+  <h1>Are you sure you want to delete your profile?</h1>
+  <h3>This will effectively delete all memories and comments you created.</h3>
+</div>
+
+<div class="page-content">
+  <form method="post">
+    {% csrf_token %}
+    <button type="submit" class="btn btn-danger">Yes - Delete</button>
+    <a href="{% url 'profile' %}" class="btn btn-secondary">Cancel!</a>
+  </form>
+</div>
 
 {% endblock %}

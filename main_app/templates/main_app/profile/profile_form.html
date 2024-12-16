@@ -1,13 +1,15 @@
-{% extends 'main_app/base.html' %} {% block content %}
+{% extends 'main_app/base.html' %} {% load static %} {% block content %}
 
 <div class="page-header">
   <h1>Edit Profile</h1>
 </div>
 
-<form action="" method="post" class="form-container">
-  {% csrf_token %} {{ form.as_p }}
-  <button type="submit" class="btn submit">Save Changes</button>
-</form>
-
+<div class="page-content">
+  <form action="" method="post" class="form-container">
+    {% csrf_token %} {{ form.as_p }}
+    <button type="submit" class="btn btn-submit">Save Changes</button>
+    <a href="{% url 'profile' %}" class="btn btn-secondary">Cancel</a>
+  </form>
+</div>
 
 {% endblock %}

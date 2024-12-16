@@ -1,4 +1,4 @@
-{% extends 'main_app/base.html' %} {% block content %}
+{% extends 'main_app/base.html' %} {% load static %} {% block content %}
 
 <div class="page-header">
   {% if memory %}
@@ -9,12 +9,22 @@
   {% endif %}
 </div>
 
-<form action="" method="post" class="form-container">
-  {% csrf_token %}
-  <table class="form-table">
-    {{ form.as_table }}
-  </table>
-  <button type="submit" class="btn submit">Confirm</button>
-</form>
+<div class="page-content">
+  <form action="" method="post" class="form-container">
+    {% csrf_token %}
+    <table class="form-table">
+      {{ form.as_table }}
+    </table>
+    <button type="submit" class="btn btn-submit">Confirm</button>
+    {% if memory %}
+    <h1>Edit Memory</h1>
+    <h3>{{ memory.title }}</h3>
+    <a href="{% url 'memory-deatil' object.pk %}" class="btn btn-secondary">Cancel</a>
+    {% else %}
+    <h1>Add New Memory</h1>
+    <a href="{% url 'my-memories' %}" class="btn btn-secondary">Cancel</a>
+    {% endif %}
+  </form>
+</div>
 
 {% endblock %}

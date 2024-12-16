@@ -1,40 +1,45 @@
-{% extends 'main_app/base.html' %} {% block content %}
+{% extends 'main_app/base.html' %} {% load static %} {% block content %}
 
-<a href="{% url 'memory-list' %}" class="btn return">Return to All Memories</a>
-<h1>{{ memory.title }}</h1>
-<p>circa {{ memory.memory_date }}</p>
-<p>recorded by: {{ memory.created_by }} on {{ memory.created }}</p>
-<p>the story: {{ memory.description }}</p>
-
-{% if user == memory.created_by %}
-    <a href="{% url 'memory-update' memory.id %}" class="btn btn-warn">Edit</a>
-    <a href="{% url 'memory-delete' memory.id %}" class="btn btn-danger">Delete</a>
-{% endif %}
-
-<hr />
-<h2>Comments</h2>
-<div>
-    {% for comment in comments %}
-        <p><strong>{{ comment.created_by }}:</strong> {{ comment.text }}</p>
-        <p><small>{{ comment.created }}</small></p>
-    
-        {% if user == comment.created_by %}
-        <a href="{% url 'comment-update' comment.id %}" class="btn btn-sm btn-warn">Edit</a>
-        <a href="{% url 'comment-delete' comment.id %}" class="btn btn-sm btn-danger">Delete</a>
-        {% endif %}
-        <hr>
-    {% empty %}
-        <p>No comments yet. Be the first!</p>
-    {% endfor %}
+<div class="page-header">
+    <a href="{% url 'memory-list' %}" class="btn btn-sm btn-return">Return to All Memories</a>
 </div>
 
-<hr>
+<div class="page-content">
+    <h1>{{ memory.title }}</h1>
+    <p>circa {{ memory.memory_date }}</p>
+    <p>recorded by: {{ memory.created_by }} on {{ memory.created }}</p>
+    <p>the story: {{ memory.description }}</p>
 
-<h2>Add Comment</h2>
-<form action="" method="post">
-    {% csrf_token %}
-    {{ comment_form.as_p }}
-    <button type="submit" class="btn btn-first">Submit</button>
-</form>
+    {% if user == memory.created_by %}
+        <a href="{% url 'memory-update' memory.id %}" class="btn btn-warn">Edit</a>
+        <a href="{% url 'memory-delete' memory.id %}" class="btn btn-danger">Delete</a>
+    {% endif %}
+
+    <hr />
+    <h2>Comments</h2>
+    <div>
+        {% for comment in comments %}
+            <p><strong>{{ comment.created_by }}:</strong> {{ comment.text }}</p>
+            <p><small>{{ comment.created }}</small></p>
+        
+            {% if user == comment.created_by %}
+            <a href="{% url 'comment-update' comment.id %}" class="btn btn-sm btn-warn">Edit</a>
+            <a href="{% url 'comment-delete' comment.id %}" class="btn btn-sm btn-danger">Delete</a>
+            {% endif %}
+            <hr>
+        {% empty %}
+            <p>No comments yet. Be the first!</p>
+        {% endfor %}
+    </div>
+
+    <hr>
+
+    <h2>Add Comment</h2>
+    <form action="" method="post">
+        {% csrf_token %}
+        {{ comment_form.as_p }}
+        <button type="submit" class="btn btn-submit">Submit</button>
+    </form>
+</div>
 
 {% endblock %}

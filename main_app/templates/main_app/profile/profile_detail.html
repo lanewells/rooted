@@ -1,13 +1,17 @@
-{% extends 'main_app/base.html' %} {% block content %}
+{% extends 'main_app/base.html' %} {% load static %} {% block content %}
 
-<h1>{{ user.username }}'s Profile</h1>
-<p>Birthdate: {{ user.relativeprofile.birthdate }}</p>
-<p><form id="logout-form" method="post" action="{% url 'logout' %}">
+<div class="page-header">
+  <h1>{{ user.username }}'s Profile</h1>
+</div>
+
+<div class="page-content">
+  <p>Birthdate: {{ user.relativeprofile.birthdate }}</p>
+  <form id="logout-form" method="post" action="{% url 'logout' %}">
     {% csrf_token %}
-    <button type="submit">Log out</button>
+    <button type="submit" class="btn">Log out</button>
   </form>
-</p>
-<a href="{% url 'account-update' %}">Edit Account</a>
-<a href="{% url 'profile-delete' %}">Delete Account</a>
+  <a href="{% url 'account-update' %}" class="btn btn-warn">Edit Account</a>
+  <a href="{% url 'profile-delete' %}" class="btn btn-danger">Delete Account</a>
+</div>
 
 {% endblock %}
