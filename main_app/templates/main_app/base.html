@@ -25,7 +25,7 @@
     </header>
 
     <main>
-      <div class="page">{% block content %}{% endblock %}</div>
+      {% block content %}{% endblock %}
     </main>
 
     {% if user.is_authenticated %}

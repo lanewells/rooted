@@ -51,7 +51,6 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
-    min-height: 100vh;
     background-color: var(--tertiary-color);
     color: white;
 }  
@@ -70,13 +69,10 @@ a {
 
 main {
     width: 55%;
-}
-
-.page {
+    height: 100vh;
     display: flex;
     flex-direction: column;
-    gap: 10px;
-    width: 100%;
+    justify-content: flex-start;
 }
 
 .navbar {
