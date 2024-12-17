@@ -11,12 +11,8 @@ from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from .models import RelativeProfile, Memory, Comment
 from .forms import MemoryForm, UserForm, UserUpdateForm, RelativeProfileForm, CommentForm
 
-############ HOME ############
-
 class Home(LoginView):
     template_name = 'main_app/home.html'
-
-############ USER & PROFILE ############
 
 def signup(request):
     error_message = ''
@@ -83,8 +79,6 @@ def update_account(request):
         'profile_form': profile_form,
     }
     return render(request, 'main_app/account/update_account.html', context)
-
-############ MEMORIES ############
 
 @login_required
 def my_memories(request):
@@ -154,9 +148,6 @@ class MemoryDelete(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
         memory = self.get_object()
         return self.request.user == memory.created_by
 
-
-
-############ COMMENTS ############
 
 class CommentList(LoginRequiredMixin, ListView):
     model = Comment

@@ -10,6 +10,7 @@
     <a href="{% url 'memory-list' %}" class="link-subtle"><span>Return to All Memories</span></a>
     <h1>{{ memory.title }}</h1>
 </div>
+
 <div class="page-content">
     <div class="info">
         <p class="subtitle">Memory Details</p>
@@ -23,32 +24,37 @@
             <a href="{% url 'memory-delete' memory.id %}" class="link-subtle danger">Delete</a>
         </div>
         {% endif %}
-
-    <hr />
-    <h2>Comments</h2>
-    <div>
-        {% for comment in comments %}
-            <p><strong>{{ comment.created_by }}:</strong> {{ comment.text }}</p>
-            <p><small>{{ comment.created }}</small></p>
-        
-            {% if user == comment.created_by %}
-            <a href="{% url 'comment-update' comment.id %}" class="link-subtle">Edit</a>
-            <a href="{% url 'comment-delete' comment.id %}" class="btn-danger">Delete</a>
-            {% endif %}
-            <hr>
-        {% empty %}
-            <p>No comments yet. Be the first!</p>
-        {% endfor %}
+    <div class="info">
+        <p class="subtitle">Comments</h2>
+        <div>
+            {% for comment in comments %}
+                <p><strong>{{ comment.created_by }}: {{ comment.text }}</strong></p>
+                <p><small>{{ comment.created }}</small></p>
+            
+                {% if user == comment.created_by %}
+                <div class="btn-container">
+                <a href="{% url 'comment-update' comment.id %}" class="link-subtle">Edit</a>
+                <a href="{% url 'comment-delete' comment.id %}" class="link-subtle danger">Delete</a>
+            </div>
+                {% endif %}
+            {% empty %}
+                <p>No comments yet. Be the first!</p>
+            {% endfor %}
+        </div>
+        <form action="" method="post">
+            <fieldset>
+                <legend>Add Comment</legend>
+                {% csrf_token %}
+                {{ comment_form.as_p }}
+                <div class="btn-container">
+                    <button type="submit" class="btn btn-secondary"><span>Submit</span></button>
+                </div>
+            </fieldset>
+        </form>
     </div>
 
-    <hr>
 
-    <h2>Add Comment</h2>
-    <form action="" method="post">
-        {% csrf_token %}
-        {{ comment_form.as_p }}
-        <button type="submit" class="btn btn-submit">Submit</button>
-    </form>
+
 </div>
 
 {% endblock %}

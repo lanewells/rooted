@@ -109,10 +109,11 @@ a {
 main {
     padding-top: 85px;
     width: 55%;
-    height: 100vh;
+    height: 150vh;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
+    padding-bottom: 90px;
 }
 
 .navbar {
