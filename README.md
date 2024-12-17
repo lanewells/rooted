@@ -34,6 +34,10 @@ Authentication: Django
 
 Deployment: Heroku, GitHub
 
+## Wireframes
+
+![Wireframes](/main_app/static/images/wf-all.png)
+
 ## New Things I Learned
 
 ### Reverse_lazy
