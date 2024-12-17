@@ -1,4 +1,9 @@
-{% extends 'main_app/base.html' %} {% load static %} {% block content %}
+{% extends 'main_app/base.html' %} {% load static %}
+{% block head %}
+<link rel="stylesheet" href="{% static 'css/details.css' %}" />
+<link rel="stylesheet" href="{% static 'css/forms.css' %}" />
+{% endblock %}
+{% block content %}
 
 <div class="page-header">
   {% if memory %}
@@ -11,19 +16,26 @@
 
 <div class="page-content">
   <form action="" method="post" class="form-container">
+
     {% csrf_token %}
-    <table class="form-table">
+    <fieldset>
+      <legend>Share your story</legend>
+    <table>
       {{ form.as_table }}
     </table>
-    <button type="submit" class="btn btn-submit">Confirm</button>
+    </fieldset>
+    <div class="btn-container">
+    <button type="submit" class="btn btn-secondary"><span>Confirm</span></button>
     {% if memory %}
-    <h1>Edit Memory</h1>
     <h3>{{ memory.title }}</h3>
-    <a href="{% url 'memory-detail' object.pk %}" class="btn btn-secondary">Cancel</a>
+
+      <a href="{% url 'memory-detail' object.pk %}" class="btn btn-secondary"><span>Cancel</span></a>
+
     {% else %}
-    <h1>Add New Memory</h1>
-    <a href="{% url 'my-memories' %}" class="btn btn-secondary">Cancel</a>
+
+      <a href="{% url 'my-memories' %}" class="btn btn-secondary"><span>Cancel</span></a>
     {% endif %}
+    </div>
   </form>
 </div>
 
