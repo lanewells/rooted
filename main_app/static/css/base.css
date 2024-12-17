@@ -106,7 +106,7 @@ a {
     all: unset;
 }
 
-main {
+main, .main {
     padding-top: 85px;
     width: 55%;
     height: 150vh;

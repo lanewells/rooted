@@ -18,28 +18,34 @@
 
   <body>
     <header>
-      <div class="header-logo-container">
+      <div class="header-container">
         <a href="/">
-          <img src="{% static 'images/logo.svg' %}" alt="Rooted logo" height="100" />
+          <img src="{% static 'images/logo.svg' %}" alt="Rooted logo" />
         </a>
+        <div class="header-text">
+          <h1>Rooted</h1>
+          <p>Welcome home.</p>
+        </div>
       </div>
     </header>
 
-    <div class="page-header">
-      <h1>Sign Up</h1>
-    </div>
+    <div class="main">
+      <div class="page-header">
+        <h1>Sign Up</h1>
+      </div>
 
-    <div class="page-content">
-      <form action="" method="post" class="signup">
-        <fieldset>
-          <legend>Create my account</legend>
-          {% csrf_token %} {{ form.as_p }} {% if error_message %}
-            <p class="danger">{{ error_message }}</p>
-          {% endif %}
-          <button type="submit" class="btn btn-secondary"><span>Sign Up</span></button>
-        </fieldset>
-      </form>
-      <p>Already have an account? <a href="{% url 'home' %}" class="link-subtle"><span>Log in here</span></a></p>
+      <div class="page-content">
+        <form action="" method="post" class="signup">
+          <fieldset>
+            <legend>Create my account</legend>
+            {% csrf_token %} {{ form.as_p }} {% if error_message %}
+              <p class="danger">{{ error_message }}</p>
+            {% endif %}
+            <button type="submit" class="btn btn-secondary"><span>Sign Up</span></button>
+          </fieldset>
+        </form>
+        <p>Already have an account? <a href="{% url 'home' %}" class="link-subtle"><span>Log in here</span></a></p>
+      </div>
     </div>
   </body>
 </html>
