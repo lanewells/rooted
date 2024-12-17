@@ -1,19 +1,28 @@
-{% extends 'main_app/base.html' %} {% load static %} {% block content %}
+{% extends 'main_app/base.html' %} {% load static %}
+{% block head %}
+<link rel="stylesheet" href="{% static 'css/details.css' %}" />
+<link rel="stylesheet" href="{% static 'css/forms.css' %}" />
+{% endblock %}
+
+{% block content %}
 
 <div class="page-header">
-    <a href="{% url 'memory-list' %}" class="btn btn-sm btn-return">Return to All Memories</a>
-</div>
-
-<div class="page-content">
+    <a href="{% url 'memory-list' %}" class="link-subtle"><span>Return to All Memories</span></a>
     <h1>{{ memory.title }}</h1>
-    <p>circa {{ memory.memory_date }}</p>
-    <p>recorded by: {{ memory.created_by }} on {{ memory.created }}</p>
-    <p>the story: {{ memory.description }}</p>
-
-    {% if user == memory.created_by %}
-        <a href="{% url 'memory-update' memory.id %}" class="btn btn-warn">Edit</a>
-        <a href="{% url 'memory-delete' memory.id %}" class="btn btn-danger">Delete</a>
-    {% endif %}
+</div>
+<div class="page-content">
+    <div class="info">
+        <p class="subtitle">Memory Details</p>
+        <p class="attribute date">circa {{ memory.memory_date }}</p>
+        <p>recorded by: {{ memory.created_by }} on {{ memory.created }}</p>
+        <p>the story: {{ memory.description }}</p>
+    </div>
+        {% if user == memory.created_by %}
+        <div class="btn-container">
+            <a href="{% url 'memory-update' memory.id %}" class="link-subtle">Edit</a>
+            <a href="{% url 'memory-delete' memory.id %}" class="link-subtle danger">Delete</a>
+        </div>
+        {% endif %}
 
     <hr />
     <h2>Comments</h2>
@@ -23,8 +32,8 @@
             <p><small>{{ comment.created }}</small></p>
         
             {% if user == comment.created_by %}
-            <a href="{% url 'comment-update' comment.id %}" class="btn btn-sm btn-warn">Edit</a>
-            <a href="{% url 'comment-delete' comment.id %}" class="btn btn-sm btn-danger">Delete</a>
+            <a href="{% url 'comment-update' comment.id %}" class="link-subtle">Edit</a>
+            <a href="{% url 'comment-delete' comment.id %}" class="btn-danger">Delete</a>
             {% endif %}
             <hr>
         {% empty %}

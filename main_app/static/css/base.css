@@ -82,7 +82,7 @@ header p {
   font-size: 3em;
 }
 
-h1, h2, h3, .btn {
+h1, h2, h3, .btn, .link-subtle {
   font-family: "Karla", serif;
   font-optical-sizing: auto;
   font-weight: 300;
