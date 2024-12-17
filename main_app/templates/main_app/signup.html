@@ -13,6 +13,7 @@
     />
     <link rel="stylesheet" href="{% static 'css/base.css' %}" />
     <link rel="stylesheet" href="{% static 'css/details.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/forms.css' %}" />
   </head>
 
   <body>
@@ -30,9 +31,11 @@
 
     <div class="page-content">
       <form action="" method="post" class="signup">
+        <fieldset>
         {% csrf_token %} {{ form.as_p }} {% if error_message %}
           <p class="danger">{{ error_message }}</p>
         {% endif %}
+        </fieldset>
         <button type="submit">Sign Up</button>
       </form>
       <p>Already have an account? <a href="{% url 'home' %}">Log in here</a>.</p>

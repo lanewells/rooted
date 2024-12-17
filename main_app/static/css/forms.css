@@ -25,4 +25,18 @@ fieldset input {
     font-variation-settings: "wdth" 112.5;
     letter-spacing: .08em;
     color: black;
+    padding: 3px;
+    margin: 2px;
+}
+
+.login .btn {
+    margin: 30px auto 20px 5px;
+}
+
+.login {
+    margin-bottom: 40px;
+}
+
+.legend .btn {
+    margin-top: 15px;
 }

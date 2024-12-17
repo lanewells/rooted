@@ -1,5 +1,6 @@
 {% extends 'main_app/base.html' %} {% load static %} {% block head %}
 <link rel="stylesheet" href="{% static 'css/details.css' %}" />
+<link rel="stylesheet" href="{% static 'css/forms.css' %}" />
 {% endblock %}
 {% block content %}
 
@@ -29,11 +30,14 @@
 
 <div class="page-content">
   <form action="" method="post" class="login">
-    {% csrf_token %} {{ form.as_p }}
-    <input type="hidden" name="next" value="{{ next }}" />
-    <button type="submit" class="btn btn-secondary"><span>Login</span></button>
+    <fieldset>
+      <legend>I have an account</legend>
+      {% csrf_token %} {{ form.as_p }}
+        <input type="hidden" name="next" value="{{ next }}" />
+        <button type="submit" class="btn btn-secondary"><span>Login</span></button>
+    </fieldset>
   </form>
-  <p>Don't have an account? <a href="{% url 'signup' %}" class="btn btn-primary"><span>Sign up here</span></a>.</p>
+  <h3 class="legend">Don't have an account? <a href="{% url 'signup' %}" class="btn btn-primary"><span>Sign up here</span></a></h3>
 </div>
 
 {% endif %} {% endblock %}
