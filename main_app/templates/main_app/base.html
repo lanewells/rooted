@@ -17,15 +17,21 @@
 
   <body>
     <header>
-      <div class="header-logo-container">
+      <div class="header-container">
         <a href="/">
-          <img src="{% static 'images/logo.svg' %}" alt="Rooted logo" height="100" />
+          <img src="{% static 'images/logo.svg' %}" alt="Rooted logo" />
         </a>
+        <div class="header-text">
+          <h1>Rooted</h1>
+          <p>Welcome home.</p>
+        </div>
       </div>
     </header>
 
     <main>
+      <div>
       {% block content %}{% endblock %}
+      </div>
     </main>
 
     {% if user.is_authenticated %}

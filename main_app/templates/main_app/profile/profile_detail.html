@@ -11,7 +11,8 @@
 <div class="page-content">
   <div class="info">
     <p class="subtitle">Information</p>
-    <p><strong>Birthdate:</strong> {{ user.relativeprofile.birthdate }}</p>
+    <p class="attribute"><strong>Username:</strong> {{ user.username }}</p>
+    <p class="attribute"><strong>Birthdate:</strong> {{ user.relativeprofile.birthdate }}</p>
   </div>
   <div class="btn-container">
     <form id="logout-form" method="post" action="{% url 'logout' %}">

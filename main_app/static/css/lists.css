@@ -9,6 +9,11 @@
     text-align: center;
 }
 
+.btn-container {
+    display: flex;
+    justify-content: center;
+}
+
 .card-container {
     display: flex;
     flex-flow: row wrap;
