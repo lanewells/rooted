@@ -30,6 +30,44 @@ Database: PSQL
 
 Authentication: Django
 
-## Deployment: Heroku, GitHub
+Deployment: Heroku, GitHub
+
+## New Things I Learned
+
+### Reverse_lazy
+
+
+
+### Fieldset & legend tags
+
+Fieldset and legend tags are in nearly every form and form view. I played around with the "hidden" (Django-native) form attributes using the dev tools in my browser. This enabled me to target specific values and change the styling to match the other pages.
+
+```html
+    <fieldset>
+        <legend>Create my account</legend>
+        <!--{{ table }}-->
+    </fieldset>
+```
+
+## Build Out & Implications
+
+The purpose of my application lies in the build out. While it is functional and fun as a smaller app, the bulk of the functionality (and fun) starts with a timeline view and multimedia uploading capabilities. Here are some other goals I have for the future of Rooted:
+
+### Build Out
+
+-   Map view via Google Maps API integration
+-   Timeline sorting by date, specific date ranges
+-   Closed 'Family Tree' groups of relatives
+-   PDF, video, image, hyperlink, audio recording capabilities for memories
+-   Add tags of custom words and tag other relatives, add locations to memories
+
+### Implications
+
+-   Track your ancestor's timeline, fill in blanks, and track their migration or immigration
+-   Upload a PDF document of your grandmother's recipe
+-   Take a photo on your phone of an old relic
+-   Visualize your family tree
+-   Upload family health conditions and deepen your understanding of your own genetics
+
 
 ### Created by Delaney Wells
