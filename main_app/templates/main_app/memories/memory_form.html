@@ -16,7 +16,6 @@
 
 <div class="page-content">
   <form action="" method="post" class="form-container">
-
     {% csrf_token %}
     <fieldset>
       <legend>Share your story</legend>
@@ -28,11 +27,8 @@
     <button type="submit" class="btn btn-secondary"><span>Confirm</span></button>
     {% if memory %}
     <h3>{{ memory.title }}</h3>
-
       <a href="{% url 'memory-detail' object.pk %}" class="btn btn-secondary"><span>Cancel</span></a>
-
     {% else %}
-
       <a href="{% url 'my-memories' %}" class="btn btn-secondary"><span>Cancel</span></a>
     {% endif %}
     </div>

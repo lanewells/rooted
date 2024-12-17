@@ -6,15 +6,24 @@
 {% block content %}
 
 <div class="page-header">
-  <h1>Edit your comment posted on {{ object.created }}</h1>
+  <h1>Edit Your Comment</h1>
+  <h2>posted on {{ object.created }}</h2>
 </div>
-<form action="" method="post" class="form-container" autocomplete="off">
-  {% csrf_token %}
-  <table>
-    {{ form.as_p }}
-  </table>
-  <button type="submit" class="btn btn-secondary">Submit</button>
-  <a href="{% url 'memory-detail' comment.memory.id %}" class="btn btn-secondary">Cancel!</a>
-</form>
+
+<div class="page-content">
+  <form action="" method="post" class="form-container" autocomplete="off">
+    {% csrf_token %}
+    <fieldset>
+      <legend>Share your story</legend>
+      <table>
+        {{ form.as_p }}
+      </table>
+    </fieldset>
+    <div class="btn-container">
+      <button type="submit" class="btn btn-secondary"><span>Confirm</span></button>
+      <a href="{% url 'memory-detail' comment.memory.id %}" class="btn btn-secondary"><span>Cancel</span></a>
+    </div>
+  </form>
+</div>
 
 {% endblock %}
