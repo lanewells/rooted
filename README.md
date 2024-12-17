@@ -1,4 +1,6 @@
-# ![Log Design](/main_app/static/images/log-readme.png) Rooted
+![Log Design](/main_app/static/images/log-readme.png) 
+
+# Rooted
 
 Rooted is a family-centered application where relatives can come together to build a shared digital timeline. By uploading written memories, relatives can record and preserve moments and celebrate their family's legacy in a meaningful way.
 
