@@ -1,4 +1,4 @@
-# Rooted
+# ![Logo](/main_app/static/images/logo.svg) Rooted
 
 Rooted is a family-centered application where relatives can come together to build a shared digital timeline. By uploading written memories, relatives can record and preserve moments and celebrate their family's legacy in a meaningful way.
 
