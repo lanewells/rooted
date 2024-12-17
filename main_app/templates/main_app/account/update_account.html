@@ -1,6 +1,7 @@
 {% extends 'main_app/base.html' %} {% load static %} 
 {% block head %}
 <link rel="stylesheet" href="{% static 'css/forms.css' %}" />
+<link rel="stylesheet" href="{% static 'css/details.css' %}" />
 {% endblock %}
 
 {% block content %}
@@ -12,17 +13,19 @@
 <div class="page-content">
   <form method="post">
     {% csrf_token %}
-    <fieldset>
-      <legend>Update Account Information</legend>
-      {{ user_form.as_p }}
-    </fieldset>
-    <fieldset>
-      <legend>Update Profile Information</legend>
-      {{ profile_form.as_p }}
-    </fieldset>
-    <button type="submit" class="btn btn-secondary"><span>Save Changes</span></button>
+      <fieldset>
+        <legend>Update Account Information</legend>
+        {{ user_form.as_p }}
+      </fieldset>
+      <fieldset>
+        <legend>Update Profile Information</legend>
+        {{ profile_form.as_p }}
+      </fieldset>
+      <div class="btn-container">
+        <button type="submit" class="btn btn-secondary"><span>Save Changes</span></button>
+        <a href="{% url 'profile' %}" class="btn btn-secondary"><span>Cancel</span></a>
+      </div>
   </form>
-  <a href="{% url 'profile' %}" class="btn btn-secondary"><span>Cancel</span></a>
 </div>
 
 {% endblock %}
