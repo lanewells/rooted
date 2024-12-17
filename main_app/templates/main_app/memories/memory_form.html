@@ -19,7 +19,7 @@
     {% if memory %}
     <h1>Edit Memory</h1>
     <h3>{{ memory.title }}</h3>
-    <a href="{% url 'memory-deatil' object.pk %}" class="btn btn-secondary">Cancel</a>
+    <a href="{% url 'memory-detail' object.pk %}" class="btn btn-secondary">Cancel</a>
     {% else %}
     <h1>Add New Memory</h1>
     <a href="{% url 'my-memories' %}" class="btn btn-secondary">Cancel</a>
