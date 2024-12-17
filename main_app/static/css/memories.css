@@ -5,13 +5,56 @@
     gap: 10px;
 }
 
+.card-container {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    background-color: var(--light-color);
+    width: 100%;
+    padding: 10px;
+    border-radius: 1.5em;
+}
+
 .card {
     display: flex;
-    flex-direction: row;
-    margin: 5px;
+    flex-flow: row wrap;
+    min-width: 20%;
+    max-width: 47%;
+    margin: 10px;
     padding: 8px;
+    border-radius: 1.5em;
+    background-color: var(--medium-color);
+    overflow: hidden;
+}
+
+.card a {
+    display: block;
 }
 
 .card-content {
-    align-items: left;
+    display: flex; 
+    flex-direction: row; 
+    align-items: center;
+}
+
+.card img {
+    width: 33.33%; 
+    object-fit: cover;
+    height: 100%;
+}
+
+.card-text {
+    width: 66.66%; 
+    padding: 15px;
+    box-sizing: border-box; 
+}
+
+.card-text h1 {
+    margin: 0; 
+    font-size: 1.5em; 
+  }
+
+.card-text p {
+    margin: 10px 0 0; 
+    font-size: 1em;
 }

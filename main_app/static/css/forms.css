@@ -1,0 +1,25 @@
+fieldset {
+    border: 1px var(--light-color) solid;
+    border-radius: .8em;
+    padding: 10px 10px 20px 20px;
+    margin: 20px auto;
+}
+
+fieldset label {
+    font-family: "Karla", serif;
+    font-optical-sizing: auto;
+    font-weight: 300;
+    font-style: normal;
+
+}
+
+fieldset input {
+    font-family: "Inconsolata", serif;
+    font-optical-sizing: auto;
+    font-size: 1.2em;
+    font-weight: 500;
+    font-style: normal;
+    font-variation-settings: "wdth" 112.5;
+    letter-spacing: .08em;
+    color: black;
+}

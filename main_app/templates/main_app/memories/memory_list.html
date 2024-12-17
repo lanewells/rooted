@@ -14,16 +14,19 @@
     </a>
   </div>
 </div>
+
 <div class="page-content">
   {% if memory_list %}
   <section class="card-container">
     {% for memory in memory_list %}
     <div class="card">
       <a href="{% url 'memory-detail' memory.id %}">
-        <img src="{% static 'images/log_outline.svg' %}" alt="Memory icon" width="50"/>
         <div class="card-content">
-            <h2 class="card-title">{{ memory.title }}</h2>
-          <p>Recorded by: {{ memory.created_by }}</p>
+          <img src="{% static 'images/log_outline.svg' %}" alt="Memory icon"/>
+          <div class="card-text">
+            <h1>{{ memory.title }}</h1>
+            <p>Recorded by: {{ memory.created_by }}</p>
+          </div>
         </div>
       </a>
     </div>

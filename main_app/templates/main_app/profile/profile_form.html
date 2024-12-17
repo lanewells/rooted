@@ -7,8 +7,8 @@
 <div class="page-content">
   <form action="" method="post" class="form-container">
     {% csrf_token %} {{ form.as_p }}
-    <button type="submit" class="btn btn-submit">Save Changes</button>
-    <a href="{% url 'profile' %}" class="btn btn-secondary">Cancel</a>
+    <button type="submit" class="btn btn-submit"><span>Save Changes</span></button>
+    <a href="{% url 'profile' %}" class="btn btn-secondary"><span>Cancel</span></a>
   </form>
 </div>
 

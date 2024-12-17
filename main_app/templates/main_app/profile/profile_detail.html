@@ -8,10 +8,10 @@
   <p>Birthdate: {{ user.relativeprofile.birthdate }}</p>
   <form id="logout-form" method="post" action="{% url 'logout' %}">
     {% csrf_token %}
-    <button type="submit" class="btn">Log out</button>
+    <button type="submit" class="btn"><span>Log out</span></button>
   </form>
-  <a href="{% url 'account-update' %}" class="btn btn-warn">Edit Account</a>
-  <a href="{% url 'profile-delete' %}" class="btn btn-danger">Delete Account</a>
+  <a href="{% url 'account-update' %}" class="btn btn-warn"><span>Edit Account</span></a>
+  <a href="{% url 'profile-delete' %}" class="btn btn-danger"><span>Delete Account</span></a>
 </div>
 
 {% endblock %}

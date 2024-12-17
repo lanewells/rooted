@@ -1,19 +1,28 @@
-{% extends 'main_app/base.html' %} {% load static %} {% block content %}
+{% extends 'main_app/base.html' %} {% load static %}
+{% block head %}
+<link rel="stylesheet" href="{% static 'css/memories.css' %}" />
+{% endblock %}
+
+{% block content %}
 
 <div class="page-header">
     <h1>My Memories</h1>
     <a href="{% url 'memory-create' %}" class="btn btn-add">Add New Memory</a>
 </div>
 
+
+<div class="page-content">
 {% if memories %}
     <div class="card-container">
         {% for memory in memories %}
         <div class="card">
             <a href="{% url 'memory-detail' memory.id %}">
                 <div class="card-content">
-                    <img src="" alt="Memory Icon" />
-                    <h2 class="card-title">{{ memory.title }}</h2>
-                    <p>circa {{ memory.memory_date }}</p>
+                    <img src="{% static 'images/log_outline.svg' %}" alt="Memory icon" />
+                    <div class="card-text">
+                        <h1>{{ memory.title }}</h1>
+                        <p>circa {{ memory.memory_date }}</p>
+                    </div>
                 </div>
             </a>
         </div>
@@ -22,5 +31,6 @@
 {% else %}
     <h2>You haven't recorded any memories yet. Add a new memory to get started!</h2>
 {% endif %}
+</div>
 
 {% endblock %}
