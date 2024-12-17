@@ -36,7 +36,12 @@ Deployment: Heroku, GitHub
 
 ### Reverse_lazy
 
+Reverse lazy is similar to reverse, but is only called when necessary. I used this in several views, including my MemoryCreate view below.
 
+```python
+    def get_success_url(self):
+        return reverse_lazy('memory-detail', kwargs={'pk': self.object.pk})
+```
 
 ### Fieldset & legend tags
 
