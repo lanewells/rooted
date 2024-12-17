@@ -1,4 +1,4 @@
-# ![Logo](/main_app/static/images/logo.svg) Rooted
+# ![Log Design](/main_app/static/images/log-readme.png) Rooted
 
 Rooted is a family-centered application where relatives can come together to build a shared digital timeline. By uploading written memories, relatives can record and preserve moments and celebrate their family's legacy in a meaningful way.
 
@@ -73,6 +73,11 @@ Fieldset and legend tags are in nearly every form and form view. I played around
         <!--{{ table }}-->
     </fieldset>
 ```
+
+### SVG & Icon Design
+
+I had fun designing the icons in the navbar and learning about SVGs.
+
 
 ## Build Out & Implications
 
