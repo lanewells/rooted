@@ -8,7 +8,9 @@
     --primary-color: #9CAF88;
     --secondary-color: #8C5329;
     --tertiary-color: #00291C;
+    --tertiary-color-alt: #005137;
     --accent-color: #C65D57;
+    --danger-color: #e8716b;
     --light-color: #EDE6DB;
     --medium-color: #705D56;
     --dark-color: #433c34;
@@ -28,12 +30,24 @@ body {
     font-size: 14px;
 }  
 
+.page-header {
+    margin: 8px auto 30px auto;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    gap: 10px;
+}
+
+.page-header h1 {
+    font-size: 3em;
+}
+
 h1, h2, h3, .btn {
     font-family: "Karla", serif;
     font-optical-sizing: auto;
     font-weight: 300;
     font-style: normal;
-  }
+}
   
 p {
     font-family: "Inconsolata", serif;
@@ -46,6 +60,7 @@ p {
 
 header {
     width: 75%;
+    height: 30px;
 }
 
 ul {
@@ -67,9 +82,8 @@ main {
 .navbar {
     position: fixed;
     bottom: 0;
-    margin-bottom: 30px;
     padding: 20px 10px;
-    width: 60%;
+    width: 75%;
     backdrop-filter: blur(15px);
     background-color: var(--light-color);
     border-radius: 8px;
@@ -107,19 +121,33 @@ main {
     display: flex;
     flex-direction: column;
     justify-content: space-evenly
-
 }
 
 .btn {
     font-size: 16px;
     font-weight: 400;
-    background-color: #154633;
+    margin: 5px 5px 5px 0px;
     padding: 24px 24px 24px 32px;
     display: flex;
     align-items: center;
+    max-width: fit-content;
+    justify-content: right;
+    border: none;
     border-radius: 99px;
     position: relative;
     transition: all 0.5s cubic-bezier(0.77, 0, 0.175, 1);
+  }
+
+  .btn-primary {
+    background-color: var(--tertiary-color-alt);
+  }
+
+  .btn-secondary {
+    background-color: var(--primary-color);
+  }
+
+  .btn-danger {
+    background-color: var(--accent-color);
   }
   
   .btn span {
@@ -142,7 +170,6 @@ main {
   
   .btn::before {
     content: '';
-    background-color: #95C11F;
     width: 32px;
     height: 32px;
     position: absolute;
@@ -154,6 +181,18 @@ main {
     transition: all 0.5s cubic-bezier(0.77, 0, 0.175, 1);
   }
   
+  .btn-primary::before {
+    background-color: var(--primary-color)
+  }
+
+  .btn-secondary::before {
+    background-color: var(--tertiary-color-alt)
+  }
+
+  .btn-danger::before {
+    background-color: var(--danger-color)
+  }
+
   .btn:hover img {
     transform: translateY(-50%) rotate(90deg); 
   }

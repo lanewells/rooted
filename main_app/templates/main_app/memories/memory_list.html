@@ -1,6 +1,6 @@
 {% extends 'main_app/base.html' %} {% load static %} 
 {% block head %}
-<link rel="stylesheet" href="{% static 'css/memories.css' %}" />
+<link rel="stylesheet" href="{% static 'css/lists.css' %}" />
 {% endblock %}
 
 {% block content %}
@@ -8,7 +8,7 @@
 <div class="page-header">
   <h1>All Family Memories</h1>
   <div>
-    <a class="btn" href="{% url 'memory-create' %}">
+    <a class="btn btn-primary" href="{% url 'memory-create' %}">
       <span class="text">Add New Memory</span>
       <img src="{% static 'images/plus-green.svg' %}" alt="Plus icon" width="16" height="16">
     </a>

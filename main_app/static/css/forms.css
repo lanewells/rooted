@@ -5,18 +5,21 @@ fieldset {
     margin: 20px auto;
 }
 
-fieldset label {
+fieldset label, fieldset legend {
     font-family: "Karla", serif;
     font-optical-sizing: auto;
     font-weight: 300;
     font-style: normal;
+}
 
+fieldset legend {
+    font-size: 1.5em;
 }
 
 fieldset input {
     font-family: "Inconsolata", serif;
     font-optical-sizing: auto;
-    font-size: 1.2em;
+    font-size: 1.1em;
     font-weight: 500;
     font-style: normal;
     font-variation-settings: "wdth" 112.5;

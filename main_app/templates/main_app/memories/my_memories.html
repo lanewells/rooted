@@ -1,14 +1,19 @@
 {% extends 'main_app/base.html' %} {% load static %}
 {% block head %}
-<link rel="stylesheet" href="{% static 'css/memories.css' %}" />
+<link rel="stylesheet" href="{% static 'css/lists.css' %}" />
 {% endblock %}
 
 {% block content %}
 
 <div class="page-header">
     <h1>My Memories</h1>
-    <a href="{% url 'memory-create' %}" class="btn btn-add">Add New Memory</a>
-</div>
+    <div>
+      <a class="btn btn-primary" href="{% url 'memory-create' %}">
+        <span class="text">Add New Memory</span>
+        <img src="{% static 'images/plus-green.svg' %}" alt="Plus icon" width="16" height="16">
+      </a>
+    </div>
+  </div>
 
 
 <div class="page-content">

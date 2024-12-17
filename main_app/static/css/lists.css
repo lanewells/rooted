@@ -1,8 +1,12 @@
-.page-header {
-    margin: 10px auto;
+.page-header h1 {
+    text-align: center;
+    margin-bottom: 5%;
+}
+
+.page-header a {
     display: flex;
-    flex-direction: column;
-    gap: 10px;
+    justify-content: center;
+    text-align: center;
 }
 
 .card-container {

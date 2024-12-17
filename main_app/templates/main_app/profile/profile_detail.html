@@ -1,17 +1,26 @@
-{% extends 'main_app/base.html' %} {% load static %} {% block content %}
+{% extends 'main_app/base.html' %} {% load static %}
+{% block head %}
+<link rel="stylesheet" href="{% static 'css/details.css' %}" />
+{% endblock %}
+{% block content %}
 
 <div class="page-header">
   <h1>{{ user.username }}'s Profile</h1>
 </div>
 
 <div class="page-content">
-  <p>Birthdate: {{ user.relativeprofile.birthdate }}</p>
-  <form id="logout-form" method="post" action="{% url 'logout' %}">
-    {% csrf_token %}
-    <button type="submit" class="btn"><span>Log out</span></button>
-  </form>
-  <a href="{% url 'account-update' %}" class="btn btn-warn"><span>Edit Account</span></a>
-  <a href="{% url 'profile-delete' %}" class="btn btn-danger"><span>Delete Account</span></a>
+  <div class="info">
+    <p class="subtitle">Information</p>
+    <p><strong>Birthdate:</strong> {{ user.relativeprofile.birthdate }}</p>
+  </div>
+  <div class="btn-container">
+    <form id="logout-form" method="post" action="{% url 'logout' %}">
+      {% csrf_token %}
+      <button type="submit" class="btn btn-secondary"><span>Log out</span></button>
+    </form>
+    <a href="{% url 'account-update' %}" class="btn btn-secondary"><span>Edit Account</span></a>
+    <a href="{% url 'profile-delete' %}" class="btn btn-danger"><span>Delete Account</span></a>
+  </div>
 </div>
 
 {% endblock %}
