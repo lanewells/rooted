@@ -1,15 +1,23 @@
-{% extends 'main_app/base.html' %} {% load static %} {% block content %}
+{% extends 'main_app/base.html' %} {% load static %}
+{% block head %}
+<link rel="stylesheet" href="{% static 'css/details.css' %}" />
+<link rel="stylesheet" href="{% static 'css/forms.css' %}" />
+{% endblock %}
+{% block content %}
 
 <div class="page-header">
   <h1>Delete Comment?</h1>
 </div>
 
+<div class="page-content">
 <h2>Are you sure you want to delete your comment?</h2>
-
-<form action="" method="post" class="form">
-  {% csrf_token %}
-  <a href="{% url 'memory-detail' comment.memory.id %}" class="btn">Cancel!</a>
-  <button type="submit" class="btn btn-danger">Yes - Delete</button>
-</form>
+  <form action="" method="post" class="form">
+    {% csrf_token %}
+    <div class="btn-container">
+      <a href="{% url 'memory-detail' comment.memory.id %}" class="btn btn-secondary"><span>Cancel!</span></a>
+      <button type="submit" class="btn btn-danger"><span>Yes - Delete</span></button>
+    </div>
+  </form>
+</div>
 
 {% endblock %}

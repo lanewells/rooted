@@ -1,4 +1,9 @@
-{% extends 'main_app/base.html' %} {% load static %} {% block content %}
+{% extends 'main_app/base.html' %} {% load static %} {% block head %}
+<link rel="stylesheet" href="{% static 'css/details.css' %}" />
+<link rel="stylesheet" href="{% static 'css/forms.css' %}" />
+{% endblock %}
+
+{% block content %}
 
 <div class="page-header">
   <h1>Delete Memory?</h1>
@@ -8,8 +13,10 @@
   <h2>Are you sure you want to delete {{ object.title }}?</h2>
   <form action="" method="post" class="form">
     {% csrf_token %}
-    <a href="{% url 'memory-detail' memory.id %}" class="btn btn-secondary">Cancel!</a>
-    <button type="submit" class="btn btn-danger">Yes - Delete</button>
+    <div class="btn-container">
+      <a href="{% url 'memory-detail' memory.id %}" class="btn btn-secondary"><span>Cancel!</span></a>
+      <button type="submit" class="btn btn-danger"><span>Yes - Delete</span></button>
+  </div>
   </form>
 </div>
 
