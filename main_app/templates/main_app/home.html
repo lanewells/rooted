@@ -13,7 +13,7 @@
 <div class="page-content">
   <div class="btn-container">
     <p><a href="{% url 'profile' %}" class="btn btn-secondary"><span>View Profile</span></a></p>
-    <p><a href="{% url 'memory-list' %}" class="btn btn-secondary"><span>Reminisce</span></spanReminisce></a></p>
+    <p><a href="{% url 'memory-list' %}" class="btn btn-secondary"><span>Reminisce</span></a></p>
     <p><a href="{% url 'memory-create' %}" class="btn btn-secondary"><span>Create Memories</span></a></p>
     <form id="logout-form" method="post" action="{% url 'logout' %}">
       {% csrf_token %}

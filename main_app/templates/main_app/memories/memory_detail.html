@@ -14,7 +14,11 @@
 <div class="page-content">
     <div class="info">
         <p class="subtitle">Memory Details</p>
-        <p class="attribute date">circa {{ memory.memory_date }}</p>
+        {% if memory.memory_date %}
+        <p class="attribute date">date: {{ memory.memory_date }}</p>
+        {% else %}
+        <p class="attribute date">No date</p>
+        {% endif %}
         <p>recorded by: {{ memory.created_by }} on {{ memory.created }}</p>
         <p>the story: {{ memory.description }}</p>
     </div>

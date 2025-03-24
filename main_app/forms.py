@@ -4,28 +4,33 @@ from django import forms
 from .models import Memory, RelativeProfile, Comment
 
 class MemoryForm(forms.ModelForm):
-    class Meta:
-            model = Memory
-            fields = ['title', 'description', 'memory_date']
-            widgets = {
-                  'title': forms.TextInput(attrs={
-                        'placeholder': 'Give your memory a title',
-                        'class': 'form-control'
-                  }),
-                  'description': forms.Textarea(attrs={
-                        'placeholder': 'Tell your story',
-                        'rows': 5,
-                        'class': 'form-control'
-                  }),
-                  'memory_date': forms.DateInput(
-                      format=('%Y-%m-%d'),
-                      attrs={
-                            'placeholder': 'Select a date',
-                            'type': 'date',
-                            'class': 'form-control'
-                      }
-                )
+    memory_date = forms.DateField(
+        required=False,
+        widget=forms.DateInput(
+            format=('%Y-%m-%d'),
+            attrs={
+                'type': 'date',
+                'classs': 'form-control',
+                'placeholder': 'Select a date',
             }
+        ),
+        input_formats=['%Y-%m-%d'],
+    )
+     
+    class Meta:
+        model = Memory
+        fields = ['title', 'description', 'memory_date']
+        widgets = {
+                'title': forms.TextInput(attrs={
+                    'placeholder': 'Give your memory a title',
+                    'class': 'form-control'
+                }),
+                'description': forms.Textarea(attrs={
+                    'placeholder': 'Tell your story',
+                    'rows': 5,
+                    'class': 'form-control'
+                }),       
+        }
 
 class UserForm(UserCreationForm):
     birthdate = forms.DateField(
