@@ -106,7 +106,7 @@ a {
 }
 
 main, .main {
-    padding: 85px 15px 115px 15px;
+    padding: 85px 15px 135px 15px;
     width: 100%;
     max-width: 800px;
     height: auto;
@@ -131,8 +131,9 @@ nav {
 
 .navbar h2 {
     font-size: 1em;
-    font-weight: 600;
+    font-weight: 500;
     text-align: center;
+    text-transform: uppercase;
 }
 
 .container {
@@ -149,6 +150,8 @@ nav {
     align-items: baseline;
     gap: 10px;
     width: 100%;
+    min-width: 300px;
+    max-width: 950px;
 }
 
 .menu-item {
@@ -270,5 +273,35 @@ nav {
 
     header p {
         display: none;
+    }
+
+    .navbar h2 {
+      font-size: 0.7em;
+      letter-spacing: -0.05em;
+    }
+
+    .btn-container {
+        gap: 5px;
+    }
+
+    .btn {
+        font-size: 14px;
+        padding: 18px 0 18px 24px;
+    }
+
+    .btn span {
+        margin-right: 42px; 
+    }
+
+    .btn img {
+        right: 17px;
+        width: 14px;
+        height: 14px;
+    }
+
+    .btn::before {
+        width: 24px;
+        height: 24px;
+        right: 12px;
     }
 }

@@ -20,16 +20,17 @@
     justify-content: center;
     background-color: var(--light-color);
     width: 100%;
-    padding: 10px;
+    padding: 5px;
     border-radius: 1.5em;
 }
 
 .card {
     display: flex;
     flex-flow: row wrap;
-    min-width: 20%;
+    min-width: 300px;
     max-width: 47%;
-    margin: 10px;
+    height: auto;
+    margin: 8px;
     padding: 8px;
     border-radius: 1.5em;
     background-color: var(--medium-color);
