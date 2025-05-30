@@ -106,7 +106,7 @@ a {
 }
 
 main, .main {
-    padding-top: 85px 15px 115px 15px;
+    padding: 85px 15px 115px 15px;
     width: 100%;
     max-width: 800px;
     height: auto;
@@ -250,6 +250,7 @@ nav {
 @media (max-width: 600px) {
     header {
         padding: 10px;
+        justify-content: center;
     }
 
     .header-container {
@@ -257,7 +258,7 @@ nav {
     }
 
     header img {
-        height: 55px;
+        height: 45px;
         margin: 0;
     }
 
