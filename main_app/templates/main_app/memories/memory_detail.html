@@ -17,7 +17,7 @@
         {% if memory.memory_date %}
         <p class="attribute date"><span>Date: </span>{{ memory.memory_date }}</p>
         {% else %}
-        <p class="attribute date"><span>No date</span></p>
+        <p class="attribute date">No date</p>
         {% endif %}
         <p class="attribute"><span>Recorded by: </span>{{ memory.created_by }} on {{ memory.created }}</p>
         <p><span>The story: </span>"{{ memory.description }}"</p>
@@ -28,7 +28,7 @@
             <a href="{% url 'memory-delete' memory.id %}" class="link-subtle danger">Delete</a>
         </div>
         {% endif %}
-    <div class="info">
+    <div class="info" id="comment-section">
         <p class="subtitle">Comments</h2>
         <div>
             {% for comment in comments %}

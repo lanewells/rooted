@@ -33,8 +33,8 @@ fieldset input, fieldset ul{
     margin: 2px;
 }
 
-fieldset ul {
-    color: white;
+fieldset input {
+    margin-bottom: 8px;
 }
 
 .login .btn {
@@ -83,11 +83,15 @@ fieldset ul {
     border: 3px solid var(--danger-color);
 }
 
+.helptext, fieldset ul {
+    color: white;
+    opacity: 60%;
+}
+
 @media  (max-width: 600px) {
     form, fieldset, .info {
         width: 100%;
         max-width: 100%;
-        overflow-x: hidden;
     }
 
     fieldset {
@@ -95,7 +99,7 @@ fieldset ul {
         margin: 8px 5px 0 0;
     }
 
-    fieldset label {
+    #comment-section fieldset label {
         display: none;
     }
 
@@ -105,9 +109,14 @@ fieldset ul {
         font-weight: 500;
     }
 
+    fieldset label {
+        font-size: 1em;
+        font-weight: 500;
+    }
+
     input, textarea {
-    width: 100%;
-    max-width: 100%;
-    box-sizing: border-box;
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
     }
 }

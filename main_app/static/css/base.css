@@ -106,7 +106,7 @@ a {
 }
 
 main, .main {
-    padding: 85px 15px 135px 15px;
+    padding: 95px 15px 135px 15px;
     width: 100%;
     max-width: 800px;
     height: auto;
@@ -140,10 +140,9 @@ nav {
 .container {
     width: 100%;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: baseline;
     padding: 0 25px;
-    justify-content: center;
 }
 
 .menu {
@@ -170,6 +169,14 @@ nav {
 .item-group img {
     max-height: 50px;
     width: auto;
+}
+
+.btn-container {
+    display: flex;
+    flex-flow: row wrap;
+    width: 100%;
+    gap: 25px;
+    margin: 20px auto;
 }
 
 .btn {

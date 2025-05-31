@@ -23,14 +23,6 @@
     font-weight: 300;
 }
 
-.btn-container {
-    display: flex;
-    flex-flow: row wrap;
-    width: 100%;
-    gap: 25px;
-    margin: 20px auto;
-}
-
 @media (max-width: 600px) {
     .info {
         font-size: 1em;
