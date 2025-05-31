@@ -89,11 +89,12 @@ fieldset p {
     border: 3px solid var(--danger-color);
 }
 
-.helptext, fieldset ul {
+.helptext, .signup ul {
     color: white;
     opacity: 60%;
     font-size: 0.8em;
     letter-spacing: normal;
+    font-weight: 200;
 }
 
 @media  (max-width: 600px) {
