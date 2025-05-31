@@ -87,6 +87,7 @@ fieldset p {
     color: white;
     opacity: 60%;
     font-size: 0.8em;
+    letter-spacing: normal;
 }
 
 @media  (max-width: 600px) {
