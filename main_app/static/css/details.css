@@ -31,3 +31,9 @@
     margin: 20px auto;
 }
 
+@media (max-width: 600px) {
+    .info {
+        font-size: 1em;
+        padding: 10px;
+    }
+}

@@ -127,6 +127,7 @@ nav {
     width: 100%;
     background-color: var(--light-color);
     color: var(--primary-color);
+
 }
 
 .navbar h2 {
@@ -142,6 +143,7 @@ nav {
     justify-content: space-between;
     align-items: baseline;
     padding: 0 25px;
+    justify-content: center;
 }
 
 .menu {
@@ -273,6 +275,10 @@ nav {
 
     header p {
         display: none;
+    }
+
+    .page-header h1 {
+        font-size: 2em;
     }
 
     .navbar h2 {

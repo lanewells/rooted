@@ -82,3 +82,32 @@ fieldset ul {
 .danger:hover {
     border: 3px solid var(--danger-color);
 }
+
+@media  (max-width: 600px) {
+    form, fieldset, .info {
+        width: 100%;
+        max-width: 100%;
+        overflow-x: hidden;
+    }
+
+    fieldset {
+        padding: 5px 5px 10px 10px;
+        margin: 8px 5px 0 0;
+    }
+
+    fieldset label {
+        display: none;
+    }
+
+    fieldset legend {
+        font-size: 0.8em;
+        letter-spacing: 0.08em;
+        font-weight: 500;
+    }
+
+    input, textarea {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    }
+}

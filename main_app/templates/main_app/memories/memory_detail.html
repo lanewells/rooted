@@ -19,7 +19,7 @@
         {% else %}
         <p class="attribute date"><span>No date</span></p>
         {% endif %}
-        <p><span>Recorded by: </span>{{ memory.created_by }} on {{ memory.created }}</p>
+        <p class="attribute"><span>Recorded by: </span>{{ memory.created_by }} on {{ memory.created }}</p>
         <p><span>The story: </span>"{{ memory.description }}"</p>
     </div>
         {% if user == memory.created_by %}
