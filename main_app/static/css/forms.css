@@ -39,6 +39,17 @@ fieldset input, fieldset ul{
     margin: 2px;
 }
 
+input, textarea {
+    font-family: "Inconsolata", serif;
+    font-optical-sizing: auto;
+    font-size: 1.1em;
+    font-weight: 500;
+    font-style: normal;
+    font-variation-settings: "wdth" 112.5;
+    letter-spacing: .08em;
+    color: black;
+}
+
 fieldset p {
     margin-top: 8px;
 }
@@ -49,17 +60,6 @@ fieldset p {
 
 .login {
     margin-bottom: 40px;
-}
-
-.signup ul {
-    font-family: "Inconsolata", serif;
-    font-optical-sizing: auto;
-    font-weight: 200;
-    font-style: normal;
-    font-size: 14px;
-    font-variation-settings: "wdth" 112.5;
-    letter-spacing: .08em;
-    color: white;
 }
 
 .link-subtle{    
