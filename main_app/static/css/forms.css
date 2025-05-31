@@ -34,9 +34,16 @@ fieldset input, fieldset ul{
     font-style: normal;
     font-variation-settings: "wdth" 112.5;
     letter-spacing: .08em;
-    color: black;
     padding: 3px;
     margin: 2px;
+}
+
+fieldset input {
+    color: black;
+}
+
+fieldset ul {
+    color: white;
 }
 
 input, textarea {
@@ -62,7 +69,7 @@ fieldset p {
     margin-bottom: 40px;
 }
 
-.link-subtle{    
+.link-subtle {    
     font-size: 14px;
     font-weight: 400;
     margin: 10px 5px 5px 0;
