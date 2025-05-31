@@ -106,6 +106,7 @@ a {
 }
 
 main, .main {
+    flex: 1;
     padding: 95px 15px 135px 15px;
     width: 100%;
     max-width: 800px;
@@ -121,13 +122,12 @@ nav {
 }
 
 .navbar {
-    position: fixed;
+    position: sticky;
     bottom: 0;
     padding: 20px 10px;
     width: 100%;
     background-color: var(--light-color);
     color: var(--primary-color);
-
 }
 
 .navbar h2 {
