@@ -19,13 +19,20 @@
     margin-bottom: 5px;
 }
 
-.date {
-    font-weight: 300;
-}
-
 @media (max-width: 600px) {
     .info {
-        font-size: 1em;
         padding: 10px;
+    }
+
+    .info p {
+        font-weight: 300;
+    }
+
+    .info p span, .subtitle {
+        letter-spacing: .08em;
+    }
+    
+    .info p span {
+        opacity: 60%;
     }
 }
