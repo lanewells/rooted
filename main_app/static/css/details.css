@@ -26,13 +26,13 @@
 
     .info p {
         font-weight: 300;
+        letter-spacing: normal;
     }
 
     .info p span, .subtitle {
         letter-spacing: .08em;
-    }
-    
-    .info p span {
+        font-size: 0.9em;
         opacity: 60%;
+
     }
 }
