@@ -19,7 +19,11 @@
         {% else %}
         <p class="attribute date">No date</p>
         {% endif %}
-        <p class="attribute"><span>Recorded by: </span>{{ memory.created_by }} on {{ memory.created }}</p>
+        <p class="attribute"><span>Recorded by: </span>{{ memory.created_by }} on {% load tz %}
+            {% localtime on %}
+            {{ memory.created }}
+            {% endlocaltime %}
+        </p>
         <p><span>The story: </span><strong>"{{ memory.description }}"</strong></p>
     </div>
         {% if user == memory.created_by %}
@@ -34,7 +38,11 @@
             {% for comment in comments %}
                 <div class="one-comment">
                     <p><strong>{{ comment.created_by }}: {{ comment.text }}</strong></p>
-                    <p><small>{{ comment.created }}</small></p>
+                    <p><small>{% load tz %}
+                        {% localtime on %}
+                        {{ comment.created }}
+                        {% endlocaltime %}
+                    </small></p>
                 </div>
             
                 {% if user == comment.created_by %}
