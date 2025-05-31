@@ -285,6 +285,10 @@ nav {
         display: none;
     }
 
+    p {
+        font-weight: 300;
+    }
+
     .page-header h1 {
         font-size: 2em;
     }

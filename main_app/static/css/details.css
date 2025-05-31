@@ -38,6 +38,9 @@
         font-weight: 500;
         font-size: 0.9em;
         opacity: 60%;
+    }
 
+    p.subtitle {
+        font-weight: 500;
     }
 }
